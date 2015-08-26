@@ -1,0 +1,23 @@
+{
+  "name": "gulptest",
+  "version": "0.0.0",
+  "authors": [
+    "Marc Wittenbrink <m.wittenbrink@interface-medien.de>"
+  ],
+  "description": "testing gulp",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "susy": "~2.2.5"
+  }
+}

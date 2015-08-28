@@ -1,0 +1,310 @@
+/*
+# elements/_forms.scss
+
+Based on http://codepen.io/njsteele/pen/ajLpb
+*/
+
+@charset "UTF-8";
+
+@mixin remove-whitespace {
+    font-size: .1%; // 0 doesn't always work, e.g. Safari 5/win
+    line-height: 0;
+    word-spacing: -.3em; // needed by browser with min font-size > 0, e.g. Opera
+}
+
+@mixin starOn() {
+    &:before {
+        font-family: "FontAwesome";
+        content: "\f005";
+        // content: "\2605";
+    }
+}
+@mixin starOff() {
+    &:before {
+        font-family: "FontAwesome";
+        content: "\f006";
+        // content: "\2606";
+    }
+}
+
+input,
+button,
+select,
+textarea {
+    @include font-size($form-font-size, $form-line-height);
+    font-family: $form-font-family;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+.placeholder {
+    color: $form-placeholder-color;
+    font-style: italic;
+}
+:-moz-placeholder { @extend .placeholder; }
+:-ms-input-placeholder { @extend .placeholder; }
+::-webkit-input-placeholder { @extend .placeholder; }
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+input[type="tel"],
+input[type="email"],
+input[type="url"],
+input[type="date"],
+input[type="time"],
+input[type="month"],
+input[type="week"],
+input[type="datetime"],
+input[type="datetime-local"],
+select,
+textarea {
+    display: inline-block;
+    margin: $form-input-margin;
+    border: $form-input-border;
+    padding: $form-input-padding;
+    line-height: normal; // allows same height across browsers
+    outline: none;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.10);
+    background: $form-input-bg-color;
+    &:hover {
+        border-color: $form-input-hover-border-color;
+    }
+    &:focus {
+        border-color: $form-input-focus-border-color;
+    }
+    &.error {
+        border: 1px solid $form-error-color;
+        color: $form-error-color;
+    }
+}
+
+select {
+    padding: $form-select-padding;
+}
+textarea {
+    overflow-y: auto; // IE fix for consistency
+}
+fieldset {
+    margin: 20px -20px;
+    border: $form-fieldset-border;
+    padding: 15px 20px;
+    background: $form-fieldset-bg-color;
+    .legend { // use with headlines; legend element is a bitch to style
+        margin-top: 0;
+    }
+}
+
+// grid
+.formrow {
+    .label {
+        font-size: $form-label-font-size;
+        word-spacing: normal;
+        &.req:after {
+            content: "*";
+            color: $form-error-color;
+        }
+    }
+    > .label {
+        display: none; // hide shared labels
+    }
+    .formitem {
+        display: inline-block;
+        word-spacing: normal;
+        vertical-align: baseline;
+        width: 100%;
+        padding: 0 0 15px;
+
+        // following rules will be needed in side-by-side layouts, won't hurt here
+        // float any child to avoid breaking baseline-alignment of .labels...
+        > * {
+            float: left;
+        }
+        // ... except .label, of course
+        > .label {
+            float: none;
+            display: block;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="number"],
+        input[type="tel"],
+        input[type="email"],
+        input[type="url"],
+        input[type="date"],
+        input[type="time"],
+        input[type="month"],
+        input[type="week"],
+        input[type="datetime"],
+        input[type="datetime-local"],
+        select,
+        textarea {
+            width: 100%;
+        }
+        label.error {
+            clear: left;
+            font-size: $form-error-font-size;
+            font-weight: bold;
+            color: $form-error-color;
+        }
+        .ticks {
+            padding: 5px 0 0;
+            label {
+                transition: all 0.2s;
+                display: inline-block;
+                color: #999;
+                &:hover { color: #666; }
+                input.checked ~ span { color: #000; } // class "checked" for IE8
+                input:checked ~ span { color: #000; } // separate to not confuse IE8
+
+                // version 1
+                > span {
+                    display: block;
+                    margin: 0 15px 5px 20px;
+                    cursor: default;
+                }
+                input[type="checkbox"],
+                input[type="radio"] {
+                    float: left;
+                    margin: 6px -9px 0 0; // ensure label text doesn't start below input
+                    &.error ~ span {
+                        color: $form-error-color;
+                    }
+                }
+
+                // version 2
+                // position: relative;
+                // padding: 0 15px 5px 20px;
+                // input[type="checkbox"],
+                // input[type="radio"] {
+                //  position: absolute;
+                //  left: 0;
+                //  margin: 1px;
+                //  &.error ~ span {
+                //      color: @errorcolor;
+                //  }
+                // }
+            }
+        }
+        .rating {
+            padding: 5px 0 0;
+            label {
+                @include starOff;
+                float: right; // direction:rtl and non-static positioning of input breaks in IE8
+                width: 42px;
+                height: 42px;
+                font-size: 42px;
+                line-height: 1;
+                cursor: pointer;
+                span {
+                    display: none;
+                }
+            }
+            input {
+                @include visually-hidden; // display:none would prevent submitting the value
+            }
+            label:hover,
+            label:hover ~ label,
+            input.checked ~ label { // class "checked" for IE8
+                @include starOn;
+            }
+            input:checked ~ label { // separate to not confuse IE8
+                @include starOn;
+            }
+            &:hover {
+                input {
+                    ~ label { @include starOff; }
+                }
+                label:hover,
+                label:hover ~ label { @include starOn; }
+            }
+        }
+    }
+}
+
+// respond!
+@mixin form-responsive-1 {
+    fieldset {
+        margin: 40px 0;
+        padding: 30px 40px;
+    }
+
+    .formrow {
+        @include remove-whitespace;
+        margin-right: -$form-gutter-width;
+        .formitem {
+            @include font-size($form-font-size, $form-line-height);
+            padding-right: $form-gutter-width;
+
+            &:last-child {
+                margin-right: -99px; // needed for older webkits (e.g. Safari 5, Android 2 stock browser)
+            }
+
+            // fake element which aligns with other .labels if current formitem has no .label:
+            &:before {
+                content: "\00a0";
+                display: block;
+                font-size: $form-label-font-size;
+                /*
+                line-height: $form-line-height;
+                font-size: $form-label-font-size;
+                line-height: 15px;
+                height: 15px;
+                */
+                margin-top: -15px; // font-size * line-height
+            }
+
+            .rating label {
+                width: 24px;
+                height: 24px;
+                font-size: 24px;
+            }
+        }
+    }
+}
+@mixin form-responsive-2 {
+    .wideform .formrow {
+        $label-width: 25%;
+        $indent: $label-width / (100% - $label-width) * 100%;
+        // #boxsizing;
+        // width: 100%;
+        padding-left: $label-width;
+        > .label {
+            @include font-size($form-font-size, $form-line-height);
+            font-size: $form-label-font-size;
+            display: inline-block;
+            vertical-align: top;
+            margin-left: -$indent;
+            padding: 13px $form-gutter-width 20px ($form-gutter-width * $indent / 100%);
+            width: $indent;
+        }
+        .formitem {
+            vertical-align: top;
+            &:before {
+                content: none;
+            }
+            > .label {
+                display: none;
+            }
+            .ticks,
+            .rating {
+                padding-top: 10px;
+            }
+        }
+    }
+}
+@include bp($form-breakpoint-1) {
+    @include form-responsive-1;
+}
+@include bp($form-breakpoint-2) {
+    @include form-responsive-2;
+}
+
+.formrow .btn {
+    margin-right: $form-gutter-width;
+}

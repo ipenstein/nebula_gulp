@@ -1,0 +1,88 @@
+/*
+# screen.scss
+
+Main stylesheet file. All Sass-files are included here.
+*/
+@charset 'utf-8';
+
+@-webkit-viewport{width:device-width}
+@-moz-viewport{width:device-width}
+@-ms-viewport{width:device-width}
+@-o-viewport{width:device-width}
+@viewport{width:device-width}
+
+/*
+# Dependencies
+*/
+
+// H5BP
+@import "vendor/h5bp/normalize";
+
+// Susy
+// http://susy.oddbird.net/
+@import "../../bower_components/susy/sass/susy";
+
+/*
+# Tools
+*/
+@import "tools/utilities";              // Helpful mixins
+@import "tools/animations";             // CSS3 Animations
+//@import "tools/flexbox";              // Flexbox styles
+
+/*
+# Config
+*/
+@import "config/webfonts";              // Webfonts
+@import "config/vars";                  // Global Variables
+@import "config/components";            // Component Variables
+
+/*
+# More Tools
+*/
+@import "tools/responsive";             // Mixins for responsive web design
+@import "tools/easygrid";               // Basic grid system
+
+/*
+# Basic Styles
+*/
+@import "base/base";                    // HTML-elements and basic classes
+@import "base/scaffold";                // Basic site scaffold
+
+/*
+# Components
+
+Styles for gui-components.
+*/
+@import "components/lists";             // Listen
+@import "components/forms";             // Formulare
+@import "components/custom-radiobuttons-checkboxes";             // Custom radiobuttons and checkboxes
+@import "components/buttons";           // Buttons
+@import "components/tabs";              // Tabs
+@import "components/collapse";          // Collapsables
+@import "components/tables";            // Tabellen
+@import "components/tooltips";          // Tooltips
+@import "components/alerts";            // (Fehler-)meldungen
+@import "components/dropdowns";         // Dropdownmenüs
+
+/*
+# Sections
+
+Styles for specific sections of the pages (i.E. Header, Footer etc.).
+*/
+@import "sections/header";              // Header
+@import "sections/navigation";          // Main navigation
+@import "sections/hero";                // Hero unit
+@import "sections/footer";              // Footer
+
+/*
+# Pages
+
+Styles for specific pages.
+*/
+@import "pages/home";                   // Startseite
+
+/*
+# Misc
+*/
+@import "misc/example";                 // Example styles
+@import "misc/shame";                   // Hacks

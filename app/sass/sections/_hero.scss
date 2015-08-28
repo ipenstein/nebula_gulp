@@ -1,0 +1,34 @@
+/*
+# sections/_hero.scss
+*/
+
+.hero {
+    background: transparent;
+    height: 400px;
+    z-index: z(hero);
+}
+
+.hero a {
+    position: absolute;
+    display: block;
+    width: 140px;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%, 0);
+    bottom: 0px;
+    font-size: 200px;
+    color: $white;
+    z-index: z(hero);
+    @include animation('blink 2.5s');
+    @include animation-property('iteration-count', 'infinite');
+
+    &:focus {
+        background-color: transparent;
+    }
+}
+
+@include keyframes('blink') {
+    0% { color: rgba($white, 0); bottom: 50px; }
+    90% { color: rgba($white, 0.6); bottom: 0px; }
+    100% { color: rgba($white, 0); }
+}

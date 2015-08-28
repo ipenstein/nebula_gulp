@@ -1,0 +1,225 @@
+/*
+# elements/_buttons.scss
+*/
+
+/*
+# elements/_buttons.scss
+
+Button styles
+*/
+.btn {
+    display: inline-block;
+    font-family: $btn-font-family;
+    font-weight: 400;
+    font-size: $btn-font-size;
+    line-height: normal;
+    border: 1px solid transparent;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    vertical-align: middle;
+    margin: $btn-margin;
+    cursor: pointer;
+    background-image: none;
+    padding: $btn-padding;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.075);
+
+    &:hover,
+    &.hover {
+        text-decoration: none;
+    }
+    &:active,
+    &.active {
+        background-image: none;
+        text-decoration: none;
+        box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.175);
+    }
+
+    &:focus {
+        border-color: rgba(0, 0, 0, 0.4);
+    }
+}
+
+/*
+# Button colors
+
+    <a class="btn btn-default">Default button</a>
+    <a class="btn btn-accept">Green button</a>
+    <a class="btn btn-decline">Red button</a>
+*/
+@mixin btn-color(
+    $color: $btn-color,
+    $bgcolor: $btn-bg-color,
+    $hover-bgcolor: $btn-hover-bg-color,
+    $active-bgcolor: $btn-active-bg-color
+) {
+    &,
+    &:visited,
+    &:focus {
+        color: $color;
+        background-color: $bgcolor;
+
+        &:hover,
+        &.hover {
+            color: $color;
+            background-color: $hover-bgcolor;
+        }
+
+        &:active,
+        &.active {
+            color: $color;
+            background-color: $active-bgcolor;
+        }
+    }
+}
+
+.btn,
+.btn-default {
+    @include btn-color;
+}
+.btn-primary {
+    @include btn-color(
+        $btn-primary-color,
+        $btn-primary-bg-color,
+        $btn-primary-hover-bg-color,
+        $btn-primary-active-bg-color
+    );
+}
+button[disabled].btn-disabled,
+.btn-disabled {
+    @include btn-color(
+        $btn-disabled-color,
+        $btn-disabled-bg-color,
+        $btn-disabled-hover-bg-color,
+        $btn-disabled-active-bg-color
+    );
+    cursor: not-allowed;
+    &:active,
+    &.active {
+        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.075);
+    }
+}
+.btn-accept {
+    @include btn-color(
+        $btn-accept-color,
+        $btn-accept-bg-color,
+        $btn-accept-hover-bg-color,
+        $btn-accept-active-bg-color
+    );
+}
+.btn-decline {
+    @include btn-color(
+        $btn-decline-color,
+        $btn-decline-bg-color,
+        $btn-decline-hover-bg-color,
+        $btn-decline-active-bg-color
+    );
+}
+
+/*
+# Button sizes
+
+    <a class="btn btn-sm btn-default">Small button</a>
+    <a class="btn btn-big btn-default">Big button</a>
+*/
+.btn-sm,
+.btn-group-sm > .btn {
+    font-size: $btn-sm-font-size;
+    padding: $btn-sm-padding;
+}
+
+.btn-big,
+.btn-group-big > .btn {
+    font-size: $btn-big-font-size;
+    padding: $btn-big-padding;
+}
+
+/*
+# Variants
+
+    <a class="btn btn-default btn-return">Return</a>
+    <a class="btn btn-default btn-proceed">Proceed</a>
+*/
+.btn-next {
+    border-top-right-radius: $btn-next-border-radius;
+    border-bottom-right-radius: $btn-next-border-radius;
+}
+.btn-sm.btn-next {
+    border-top-right-radius: $btn-sm-next-border-radius;
+    border-bottom-right-radius: $btn-sm-next-border-radius;
+}
+.btn-big.btn-next {
+    border-top-right-radius: $btn-big-next-border-radius;
+    border-bottom-right-radius: $btn-big-next-border-radius;
+}
+.btn-prev {
+    border-top-left-radius: $btn-next-border-radius;
+    border-bottom-left-radius: $btn-next-border-radius;
+}
+.btn-sm.btn-prev {
+    border-top-left-radius: $btn-sm-next-border-radius;
+    border-bottom-left-radius: $btn-sm-next-border-radius;
+}
+.btn-big.btn-prev {
+    border-top-left-radius: $btn-big-next-border-radius;
+    border-bottom-left-radius: $btn-big-next-border-radius;
+}
+.btn-round {
+    border-radius: $btn-next-border-radius;
+}
+.btn-sm.btn-round {
+    border-radius: $btn-sm-next-border-radius;
+}
+.btn-big.btn-round {
+    border-radius: $btn-big-next-border-radius;
+}
+
+.btn-full {
+    width: 100%;
+}
+
+/*
+# Button group
+
+    <div class="btn-group">
+        <a class="btn btn-default">Default button</a>
+        <a class="btn btn-primary">Primary button</a>
+        <a class="btn btn-green">Green button</a>
+    </div>
+*/
+.btn-group {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+}
+.btn-group > .btn {
+    position: relative;
+    float: left;
+}
+.btn-group > .btn:not(:first-child):not(:last-child) {
+    border-radius: 0;
+}
+.btn-group > .btn:first-child:not(:last-child) {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+.btn-group > .btn:last-child:not(:first-child) {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
+.btn-group .btn + .btn,
+.btn-group .btn + .btn-group,
+.btn-group .btn-group + .btn,
+.btn-group .btn-group + .btn-group {
+    margin-left: -1px;
+}
+.btn-group > .btn:hover,
+.btn-group > .btn:active,
+.btn-group > .btn.active {
+    z-index: 2;
+}

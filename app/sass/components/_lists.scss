@@ -1,0 +1,64 @@
+/*
+# @mixin no-list
+
+Reset list styles (list-style-type, margin, padding)
+*/
+@mixin no-list {
+    &,
+    & li {
+        list-style: none;
+        background-image: none;
+        padding: 0;
+    }
+}
+
+/*
+# @mixin inline-list
+
+Create simple horizontal list without bullets
+*/
+@mixin inline-list {
+    list-style-type: none;
+    &, & li {
+        margin: 0;
+        padding: 0;
+        display: inline;
+    }
+}
+
+/*
+# Custom ol counter
+*/
+@mixin custom-counter {
+    &,
+    & ol {
+        margin-left: 0;
+        padding-left: 0;
+        list-style-type: none;
+    }
+
+    & ol {
+        counter-reset: step-counter;
+    }
+
+    & li {
+        counter-increment: step-counter;
+        position: relative;
+        padding-left: 2em;
+        margin-top: 0.5em;
+    }
+
+    & li:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: counter(step-counter);
+        font-size: 80%;
+        background-color: $blue1;
+        color: $white;
+        font-weight: bold;
+        padding: 0px 8px;
+        border-radius: 3px;
+    }
+}
+

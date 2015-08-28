@@ -1,0 +1,42 @@
+/*
+# _animations.scss
+
+Mixins for CSS3 keyframe animations.
+*/
+
+/*
+Example:
+    button {
+        &.working {
+            @include animation('working-bg 0.5s');
+            @include animation-property('iteration-count', 'infinite');
+        }
+    }
+    @include keyframes('working-bg') {
+        from { background-color: rgba(#090, 0); }
+        to { background-color: rgba(#090, 0.5); }
+    }
+
+    <button class="working">Please wait...</button>
+*/
+
+@mixin animation($value) {
+    -webkit-animation: unquote($value);
+       -moz-animation: unquote($value);
+         -o-animation: unquote($value);
+            animation: unquote($value);
+}
+
+@mixin animation-property($property, $value) {
+    -webkit-animation-#{$property}: unquote($value);
+       -moz-animation-#{$property}: unquote($value);
+         -o-animation-#{$property}: unquote($value);
+            animation-#{$property}: unquote($value);
+}
+
+@mixin keyframes($name) {
+    @-webkit-keyframes #{$name} { @content; }
+       @-moz-keyframes #{$name} { @content; }
+         @-o-keyframes #{$name} { @content; }
+            @keyframes #{$name} { @content; }
+}

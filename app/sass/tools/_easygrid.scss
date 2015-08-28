@@ -1,0 +1,28 @@
+/*
+# base/_easygrid.scss
+
+Very basic grid system
+ */
+@include bp($grid-brakepoint) {
+    .grid {
+        @include clearfix;
+        margin-right: -#{$grid-gutter};
+    }
+
+    .grid [class^="col-"],
+    .grid [class*=" col-"] {
+        float: left;
+        padding-right: $grid-gutter;
+    }
+
+    .col-1of1, .formrow .formitem.col-1of1 { width: 100%; }
+    .col-1of2, .formrow .formitem.col-1of2 { width: 50%; }
+    .col-1of3, .formrow .formitem.col-1of3 { width: 33.33333333%; }
+    .col-2of3, .formrow .formitem.col-2of3 { width: 66.66666666%; }
+    .col-1of4, .formrow .formitem.col-1of4 { width: 25%; }
+    .col-3of4, .formrow .formitem.col-3of4 { width: 75%; }
+    .col-1of5, .formrow .formitem.col-1of5 { width: 20%; }
+    .col-2of5, .formrow .formitem.col-2of5 { width: 40%; }
+    .col-3of5, .formrow .formitem.col-3of5 { width: 60%; }
+    .col-4of5, .formrow .formitem.col-4of5 { width: 80%; }
+}

@@ -1,0 +1,163 @@
+/*
+# config/_components.scss
+*/
+
+
+/*
+# Forms
+*/
+$form-breakpoint-1:             small;
+$form-breakpoint-2:             medium;
+$form-font-family:              $font-family-1;
+$form-font-size:                $base-font-size;
+$form-line-height:              $base-line-height;
+$form-placeholder-color:        $grey3;
+$form-input-margin:             4px 0;
+$form-input-padding:            6px;
+$form-input-border:             1px solid $grey4;
+$form-input-bg-color:           $grey5;
+$form-input-hover-border-color: darken($grey4, 10%);
+$form-input-focus-border-color: $blue1;
+$form-error-color:              $red1;
+$form-error-font-size:          12px;
+$form-select-padding:           5px;
+$form-label-font-size:          14px;
+$form-gutter-width:             10px;
+$form-fieldset-bg-color:        $white;
+$form-fieldset-border:          1px solid $grey4;
+
+/*
+# Buttons
+*/
+
+// Basic Styles
+$btn-font-family:               $font-family-1;
+$btn-border:                    0;
+$btn-border-radius:             3px;
+$btn-margin:                    4px 0;
+
+// Color variants
+$btn-color:                     $grey1;
+$btn-bg-color:                  $grey5;
+$btn-hover-bg-color:            darken($grey5, 5%);
+$btn-active-bg-color:           darken($grey5, 10%);
+
+$btn-primary-color:             $white;
+$btn-primary-bg-color:          $blue1;
+$btn-primary-hover-bg-color:    darken($blue1, 5%);
+$btn-primary-active-bg-color:   darken($blue1, 10%);
+
+$btn-disabled-color:            $grey4;
+$btn-disabled-bg-color:         darken($white, 5%);
+$btn-disabled-hover-bg-color:   darken($white, 5%);
+$btn-disabled-active-bg-color:  darken($white, 5%);
+
+$btn-accept-color:              $white;
+$btn-accept-bg-color:           $green1;
+$btn-accept-hover-bg-color:     darken($green1, 5%);
+$btn-accept-active-bg-color:    darken($green1, 10%);
+
+$btn-decline-color:             $white;
+$btn-decline-bg-color:          $red1;
+$btn-decline-hover-bg-color:    darken($red1, 5%);
+$btn-decline-active-bg-color:   darken($red1, 10%);
+
+// Sizes
+$btn-font-size:                 $base-font-size;
+$btn-padding:                   6px 20px;
+$btn-next-border-radius:        17px;
+
+$btn-sm-font-size:              14px;
+$btn-sm-padding:                5px 12px;
+$btn-sm-next-border-radius:     14px;
+
+$btn-big-font-size:             20px;
+$btn-big-padding:               10px 30px;
+$btn-big-next-border-radius:    23px;
+
+/*
+# Tabs
+*/
+$tab-padding:                   10px 20px;
+$tab-color:                     $grey3;
+$tab-border-color:              $grey2;
+$tab-bg-color:                  $grey5;
+$tab-hover-color:               $grey1;
+$tab-hover-border-color:        darken($turquise1, 40%);
+$tab-hover-bg-color:            $turquise1;
+$tab-active-color:              $grey1;
+$tab-active-border-color:       $grey2;
+$tab-active-bg-color:           $white;
+
+/*
+# Collapse
+*/
+$collapse-color:                $grey1;
+$collapse-icon-color:           $blue1;
+
+/*
+# Tables
+*/
+$table-breakpoint:              medium;         // max-brakepoint at which responsive tables will become scrollable
+$table-bg-color:                transparent;
+$table-bg-accent-color:         $grey5;
+$table-bg-hover-color:          $blue2;
+$table-border-color:            $grey4;
+$table-cell-padding:            10px;
+$table-active-bg-color:         $turquise2;
+$table-info-bg-color:           $blue2;
+$table-success-bg-color:        $green2;
+$table-warning-bg-color:        $yellow2;
+$table-error-bg-color:          $red2;
+
+/*
+# Tooltips
+*/
+$tooltip-color:                 $white;
+$tooltip-bg-color:              $blue1;
+$tooltip-font-size:             14px;
+$tooltip-line-height:           22px;
+$tooltip-height:                34px;
+$tooltip-padding:               6px 10px;
+$tooltip-bubble-pos:            -40px;
+$tooltip-triangle-pos:          -6px;
+$tooltip-triangle-size:         6px;
+
+/*
+# Alerts
+*/
+$alert-font-family:             $font-family-1;
+$alert-font-size:               14;
+$alert-line-height:             20;
+$alert-padding:                 10px 15px;
+$alert-margin:                  0 0 $base-line-height 0;
+$alert-border:                  1px solid;
+
+$alert-info-color:              $grey1;
+$alert-info-bg-color:           $blue2;
+$alert-info-border-color:       $blue1;
+
+$alert-danger-color:            $grey1;
+$alert-danger-bg-color:         $yellow2;
+$alert-danger-border-color:     $yellow1;
+
+$alert-error-color:             $grey1;
+$alert-error-bg-color:          $red2;
+$alert-error-border-color:      $red1;
+
+$alert-success-color:           $grey1;
+$alert-success-bg-color:        $green2;
+$alert-success-border-color:    $green1;
+
+/*
+# Dropdowns
+*/
+$dropdown-font-size:            16;
+$dropdown-line-height:          24;
+$dropdown-padding:              5px 0;
+$dropdown-option-padding:       5px 20px;
+$dropdown-border:               1px solid $grey4;
+$dropdown-color:                $grey1;
+$dropdown-bg-color:             $white;
+$dropdown-hover-bg-color:       $grey5;
+$dropdown-divider-color:        $grey4;

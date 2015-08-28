@@ -1,0 +1,45 @@
+/*
+# sections/_header.scss
+*/
+
+.site-header {
+    background-color: $grey1;
+    padding: 10px 0;
+    height: 60px;
+    position: fixed;
+    width: 100%;
+    z-index: z(site-header);
+    box-shadow: 0 15px 15px rgba(#000000, 0.2);
+}
+
+.logo {
+    z-index: z(logo);
+    position: absolute;
+    left: 10px;
+    top: 2px;
+    font-family: $font-family-2;
+    @include font-size(30,30);
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    &,
+    &:hover,
+    &:visited {
+        color: $white;
+    }
+
+    &:focus {
+        background-color: transparent;
+    }
+
+    i {
+        color: $blue1;
+        @include font-size(45,30);
+        font-weight: normal;
+        margin-right: -4px;
+    }
+
+    @include bp(small) {
+        left: 20px;
+    }
+}

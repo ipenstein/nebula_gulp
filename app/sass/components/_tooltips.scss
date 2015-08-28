@@ -1,0 +1,51 @@
+@mixin tooltip($content: attr(data-tooltip), $direction: top) {
+    position: relative;
+    &:before,
+    &:after {
+        display: none;
+        z-index: z(tooltips);
+    }
+    &:hover {
+        &:after { // for text bubble
+            content: $content;
+            display: block;
+            position: absolute;
+            height: $tooltip-height;
+            padding: $tooltip-padding;
+            font-size: $tooltip-font-size;
+            line-height: $tooltip-line-height;
+            white-space: nowrap;
+            color: $tooltip-color;
+            background-color: $tooltip-bg-color;
+        }
+        @if ($direction == 'top') {
+            &:before {
+                @include triangle-absolute(bottom, $tooltip-triangle-size, $tooltip-bg-color);
+                top: $tooltip-triangle-pos;
+                margin-top: 0;
+                left: 50%;
+                transform: translate(-50%, 0);
+            }
+            &:after {
+                top: $tooltip-bubble-pos;
+                left: 50%;
+                transform: translate(-50%, 0);
+            }
+        }
+        @else if ($direction == 'bottom') {
+            &:before {
+                @include triangle-absolute(top, $tooltip-triangle-size, $tooltip-bg-color);
+                top: auto;
+                margin-top: 0;
+                bottom: $tooltip-triangle-pos;
+                left: 50%;
+                transform: translate(-50%, 0);
+            }
+            &:after {
+                bottom: $tooltip-bubble-pos;
+                left: 50%;
+                transform: translate(-50%, 0);
+            }
+        }
+    }
+}

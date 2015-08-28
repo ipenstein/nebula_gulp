@@ -1,0 +1,34 @@
+/*
+# elements/_collapse.scss
+*/
+
+.collapse-toggle {
+    position: relative;
+    cursor: pointer;
+    padding: $base-line-height 0 0;
+    padding-left: 1.25em;
+    margin: 0;
+    color: $collapse-color;
+    &:first-child {
+        padding-top: 0;
+    }
+    &:before {
+        position: absolute;
+        left: 0.2em;
+        font-family: "FontAwesome";
+        content: "\f054";
+    }
+    &:hover:before {
+        color: $collapse-icon-color;
+    }
+    &.collapse-open:before {
+        left: 0;
+        content: "\f078";
+    }
+}
+
+.collapse-content {
+    display: none;
+    margin: 0;
+    padding: $base-line-height 0 0;
+}

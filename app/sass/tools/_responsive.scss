@@ -1,0 +1,114 @@
+/*
+# tools/_responsive.scss
+
+Useful mixins and classes for responsive web design
+*/
+
+/*
+# @mixin bp
+
+Mixin to manage responsive breakpoints.
+Feel free to add more breakpoints in "base/_vars.scss".
+
+    $breakpoints: small 500px, medium 700px, big 900px;
+    .wrapper {
+        width: 220px;
+        @include bp(small) {
+            width: 460px;
+        }
+    }
+
+@param {String} $breakpoint - breakpoint name
+@require $breakpoints
+*/
+@mixin bp($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        @media (min-width: map-get($breakpoints, $breakpoint)) {
+            @content;
+        }
+    }
+    @else {
+        @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+            + "Available breakpoints are: #{map-keys($breakpoints)}.";
+    }
+}
+
+/*
+# Max-width breakpoints
+
+@param {String} $breakpoint - breakpoint name
+@require $breakpoints
+*/
+@mixin bp-max($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        @media (max-width: map-get($breakpoints, $breakpoint) - 1px) {
+            @content;
+        }
+    }
+    @else {
+        @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+            + "Available breakpoints are: #{map-keys($breakpoints)}.";
+    }
+}
+
+/*
+# @mixin hd
+
+Retina breakpoint.
+
+@param {Integer} $ratio - device pixel ratio
+@param {String} $resolution - dpi-resolution
+*/
+@mixin hd($ratio: 2, $resolution: 192dpi) {
+    @media (-min-device-pixel-ratio: $ratio), (min-resolution: $resolution) {
+        @content;
+    }
+}
+
+/*
+# Dynamic classes based on $breakpoints.
+
+Dont't show an element until or hide it starting at a specific breakpoint.
+
+$breakpoints: small 500px, medium 700px, big 900px;
+.reveal-small {}
+.reveal-medium {}
+.reveal-big {}
+.hide-small {}
+.hide-medium {}
+.hide-big {}
+
+@require $breakpoints
+*/
+@each $breakpoint in $breakpoints {
+    $name: nth($breakpoint, 1);
+    $width: nth($breakpoint, 2);
+    .hide-#{$name} {
+        @media (min-width: $width) {
+            display: none !important;
+        }
+    }
+    .reveal-#{$name} {
+        display: none !important;
+        @media (min-width: $width) {
+            display: block !important;
+        }
+    }
+}
+
+/*
+# responsive status
+*/
+#responsive-status {
+    display: none;
+    font-family: "mobile";
+}
+@each $breakpoint in $breakpoints {
+    $name: nth($breakpoint, 1);
+    $width: nth($breakpoint, 2);
+    @media (min-width: $width) {
+        #responsive-status {
+            font-family: "#{$name}";
+        }
+    }
+}

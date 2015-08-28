@@ -1,0 +1,55 @@
+/*
+# elements/_tabs.scss
+*/
+
+.tabs {
+    @include no-list;
+    @include clearfix;
+    display: block;
+    border-bottom: 1px solid $tab-active-border-color;
+    margin-bottom: $base-line-height;
+    li {
+        display: inline;
+    }
+    a {
+        position: relative;
+        z-index: 10;
+        display: block;
+        float: left;
+        padding: $tab-padding;
+        margin-bottom: -1px;
+        margin-right: -1px;
+        cursor: pointer;
+        text-decoration: none;
+        color: $tab-color;
+        background-color: $tab-bg-color;
+        border: 1px solid $tab-border-color;
+        border-bottom: 1px solid $tab-active-border-color;
+        transition: all 0.2s ease-out;
+    }
+    li:first-child a {
+        border-radius: 3px 0 0 0;
+    }
+    li:last-child a {
+        border-radius: 0 3px 0 0;
+    }
+    li:first-child:last-child a {
+        border-radius: 3px 3px 0 0;
+    }
+    a:hover,
+    a:focus,
+    a:active {
+        z-index: 20;
+        color: $tab-hover-color;
+        background-color: $tab-hover-bg-color;
+        border-color: $tab-hover-border-color;
+        border-bottom: 1px solid $tab-active-border-color;
+    }
+    .active a {
+        z-index: 30;
+        color: $tab-active-color;
+        background-color: $tab-active-bg-color;
+        border-color: $tab-active-border-color;
+        border-bottom: 1px solid $tab-active-bg-color;
+    }
+}

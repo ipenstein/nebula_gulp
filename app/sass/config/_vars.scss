@@ -1,0 +1,110 @@
+/*
+# config/_vars.scss
+
+Make your changes here.
+*/
+
+/*
+# Basic layout
+*/
+$max-width: 1050px;
+$min-width: 320px;
+
+// Breakpoint configuration
+// Feel free to add more breakpoints!
+$breakpoints: (
+    small:  500px,
+    medium: 700px,
+    big:    940px
+) !default;
+
+/*
+# Easygrid settings
+
+tools/_easygrid.scss
+*/
+$grid-brakepoint:       small;          // min-brakepoint where easygrid will become active
+$grid-gutter:           20px;           // horizontal gap between grid columns
+
+/*
+# Susy settings
+
+Global settings for susy grid system.
+http://susydocs.oddbird.net/en/latest/settings/
+*/
+$susy: (
+    //debug:            (image: show),
+    columns:            12,
+    gutters:            1/3,
+    container:          $max-width,
+    //gutter-position:  inside,
+    global-box-sizing:  border-box
+);
+
+/*
+# Z-Layers
+Gather all z-indexes into a single map, and stick to them. Then you know how
+many layers the application uses, making it easy to understand what’s going on
+(and, sooner or later, to debug).
+*/
+$z-layers: (
+    preloader:      999,
+    site-header:    30,
+    content:        10,
+    site-footer:    20,
+
+    logo:           30,
+    main-nav:       20,
+    hero:           10,
+    tooltips:       20
+);
+
+/*
+# Basic color palette
+*/
+$black:             #000;
+$grey1:             #333;
+$grey2:             #666;
+$grey3:             #999;
+$grey4:             #ccc;
+$grey5:             #eee;
+$white:             #fff;
+
+$violet1:           #a5037c;
+$green1:            #6fa938;
+$blue1:             #109acc;
+$red1:              #e53f32;
+$yellow1:           #e9ac00;
+$turquise1:         #86cee0;
+
+$violet2:           tint($violet1, 70%);
+$blue2:             tint($blue1, 70%);
+$green2:            tint($green1, 70%);
+$red2:              tint($red1, 70%);
+$yellow2:           tint($yellow1, 70%);
+$turquise2:         tint($turquise1, 70%);
+
+/*
+# Basic site colors
+*/
+$text-color:            $grey1;
+
+$link-color:            $blue1;
+$link-hover-color:      darken($blue1, 30%);
+$link-active-color:     $white;
+$link-active-bg-color:  $blue1;
+$link-visited-color:    $violet1;
+
+$hr-color:              $grey1;
+
+$body-bg-color:         $grey5;
+
+/*
+# Basic typography
+*/
+$font-family-1:         "Roboto", "Helvetica-Neue", Helvetica, Arial, sans-serif;
+$font-family-2:         "Oswald", Arial, sans-serif;
+$font-family-3:         "Roboto Mono", "Consolas", "Source Code Pro", "Courier New", Courier, monospace;
+
+$base-font-size:        16px;             //in px without unit
+$base-line-height:      24px;             //in px without unit

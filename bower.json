@@ -1,6 +1,6 @@
 {
-  "name": "gulptest",
-  "version": "0.0.0",
+  "name": "Nebula (Gulp-Version)",
+  "version": "1.0.0",
   "authors": [
     "Marc Wittenbrink <m.wittenbrink@interface-medien.de>"
   ],
@@ -18,6 +18,11 @@
     "tests"
   ],
   "dependencies": {
+    "font-awesome": "fontawesome#~4.4.0",
+    "jquery": "~1.11.3",
+    "jquery-validation": "~1.14.0",
+    "mappy-breakpoints": "~0.2.1",
+    "modernizr": "~2.8.3",
     "susy": "~2.2.5"
   }
 }

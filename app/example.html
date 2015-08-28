@@ -1,0 +1,2808 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js ie7 lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js ie8 lt-ie9"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js ie9"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>NEBULA Frontend Framework</title>
+    <meta name="author" content="Marc Wittenbrink - www.wittenbrink.com">
+    <meta name="publisher" content="Marc Wittenbrink - www.wittenbrink.com">
+    <meta name="copyright" content="">
+    <meta name="description" content="{PAGE_DESCRIPTION}">
+    <meta name="keywords" content="{PAGE_KEYWORDS}">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="translucent-black">
+    <meta name="apple-mobile-web-app-title" content="Nebula">
+
+    <meta http-equiv="cleartype" content="on">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="img/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="img/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="img/favicons/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="img/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="img/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="manifest.json">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="msapplication-TileImage" content="img/favicons/mstile-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Mono:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" media="screen, projection" href="css/screen.css?date=2015-08-28" type="text/css">
+    <link rel="stylesheet" media="print" href="css/print.css" type="text/css">
+
+    <!-- Syntax Highlighting -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+
+    <script src="bower_components/modernizr/modernizr.js"></script>
+
+    <!-- Syntax Highlighting -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+</head>
+<body>
+    <div id="preloader"></div>
+    <header class="site-header">
+        <div class="container">
+            <a class="logo" href="example.html"><i class="fa fa-rocket"></i> Nebula</a>
+            <nav class="main-nav">
+                <button class="dropdown-toggle"><i class="icon-open fa fa-bars"></i><i class="icon-close fa fa-times"></i></button>
+                <ul>
+                    <li id="nav-basic"><a href="#basic">Basics</a></li>
+                    <li id="nav-utilities"><a href="#utilities">Utilities</a></li>
+                    <li id="nav-rwd"><a href="#rwd">RWD</a></li>
+                    <li id="nav-grid"><a href="#grid">Grid</a></li>
+                    <li id="nav-forms"><a href="#forms">Forms</a></li>
+                    <li id="nav-buttons"><a href="#buttons">Buttons</a></li>
+                    <li id="nav-tabs"><a href="#tabs">Tabs</a></li>
+                    <li id="nav-collapse"><a href="#collapse">Collapse</a></li>
+                    <li id="nav-tables"><a href="#tables">Tables</a></li>
+                    <li id="nav-tooltips"><a href="#tooltips">Tooltips</a></li>
+                    <li id="nav-alerts"><a href="#alerts">Alerts</a></li>
+                    <li id="nav-dropdowns"><a href="#dropdowns">Dropdowns</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="hero parallax-window">
+        <a href="#basic"><i class="fa fa-angle-down"></i></a>
+    </section>
+    <main class="content">
+        <div class="container">
+            <div class="main-content">
+                <a id="basic"></a>
+                <h1>Nebula - Frontend Pattern Library</h1>
+                <p>
+                    A collection of conventional frontend patterns by <a href="mailto:wittenbrink@gmail.com">Marc Wittenbrink</a>.
+                </p>
+                <p>
+                    Some patterns are selfmade, others were taken from other sources (when indicated with a link to the source).This page should give you a quick rundown of the included components and help you to assemble them into your own projects. You'll see the needed files to run a component under the "Files"-Tab in each of the following chapters.
+                </p>
+                <p>
+                    If you want to build your next project on top of Nebula, please mind that it uses the following third party software:
+                </p>
+                <ul>
+                    <li><a href="http://sass-lang.com/">Sass</a> & <a href="http://compass-style.org/">Compass</a></li>
+                    <li><a href="http://susy.oddbird.net/">Susy</a></li>
+                    <li><a href="https://jquery.com/">jQuery</a></li>
+                    <li><a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a></li>
+                    <li><a href="http://modernizr.com/">Modernizr</a></li>
+                    <li><a href="http://bower.io/">Bower</a> (to install dependencies like Susy and jQuery)</li>
+                </ul>
+                <p><a href="https://github.com/ipenstein/nebula">Nebula on <i class="fa fa-github"></i> GitHub</a></p>
+                <p>
+                    Have fun and happy building!<br>
+                    Marc
+                </p>
+                <hr>
+                <h3>Color Guide:</h3>
+                <code class="html">HTML</code>&nbsp;&nbsp;&nbsp;
+                <code class="css">CSS / Sass (SCSS)</code>&nbsp;&nbsp;&nbsp;
+                <code class="js">JavaScript / jQuery</code>&nbsp;&nbsp;&nbsp;
+                <code class="files">Files</code>
+                <hr>
+                <section>
+                    <h2>Basics</h2>
+                    <article>
+                        <h3>Headings and body copy</h3>
+                        <div class="example-tabs tabs-container">
+                            <ul class="tabs">
+                                <li><a class="example" href="#hbc-example">Example</a></li>
+                                <li><a class="html" href="#hbc-html">HTML</a></li>
+                                <li><a class="files" href="#hbc-files">Files</a></li>
+                            </ul>
+                            <div id="hbc-example" class="tab-content">
+                                <div class="example">
+                                    <h1>Heading 1 &lt;h1&gt;</h1>
+                                    <h2>Heading 2 &lt;h2&gt;</h2>
+                                    <h3>Heading 3 &lt;h3&gt;</h3>
+                                    <h4>Heading 4 &lt;h4&gt;</h4>
+                                    <h4 class="h2">Heading 4 with class .h2 &lt;h4 class=&quot;h2&quot;&gt;</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in posuere orci. Nam euismod gravida nunc. Ut accumsan vitae dolor interdum ullamcorper. Ut luctus, lacus quis finibus bibendum, tortor nisl tristique mauris, eu efficitur nisi felis sit amet lacus. Duis a euismod erat. Sed faucibus ultricies sem, varius fringilla velit ullamcorper sit amet.</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in posuere orci. Nam euismod gravida nunc. Ut accumsan vitae dolor interdum ullamcorper. Ut luctus, lacus quis finibus bibendum, tortor nisl tristique mauris, eu efficitur nisi felis sit amet lacus. Duis a euismod erat. Sed faucibus ultricies sem, varius fringilla velit ullamcorper sit amet.</p>
+                                </div>
+                            </div>
+                            <div id="hbc-html" class="tab-content">
+<pre><code class="html">&lt;h1&gt;Heading 1&lt;/h1&gt;
+&lt;h2&gt;Heading 2&lt;/h2&gt;
+&lt;h3&gt;Heading 3&lt;/h3&gt;
+&lt;h4&gt;Heading 4;&lt;/h4&gt;
+&lt;h4 class="h2"&gt;Heading 4 with class .h2&lt;/h4&gt;
+&lt;p&gt;
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in posuere orci. Nam euismod gravida nunc. Ut accumsan vitae dolor interdum ullamcorper. Ut luctus, lacus quis finibus bibendum, tortor nisl tristique mauris, eu efficitur nisi felis sit amet lacus. Duis a euismod erat. Sed faucibus ultricies sem, varius fringilla velit ullamcorper sit amet.
+&lt;/p&gt;
+&lt;p&gt;
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in posuere orci. Nam euismod gravida nunc. Ut accumsan vitae dolor interdum ullamcorper. Ut luctus, lacus quis finibus bibendum, tortor nisl tristique mauris, eu efficitur nisi felis sit amet lacus. Duis a euismod erat. Sed faucibus ultricies sem, varius fringilla velit ullamcorper sit amet.
+&lt;/p&gt;
+</code></pre>
+                            </div>
+                            <div id="hbc-files" class="tab-content">
+                                <ul class="files">
+                                    <li>sass/config/_vars.scss</li>
+                                    <li>sass/base/_base.scss</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+                    <article>
+                        <h3>Lead body copy</h3>
+                        <p>Make a paragraph stand out by adding <code class="html">class="lead"</code>.</p>
+                        <div class="example-tabs tabs-container">
+                            <ul class="tabs">
+                                <li><a class="example" href="#lead-example">Example</a></li>
+                                <li><a class="html" href="#lead-html">HTML</a></li>
+                                <li><a class="files" href="#lead-files">Files</a></li>
+                            </ul>
+                            <div id="lead-example" class="tab-content">
+                                <div class="example">
+                                    <p class="lead">
+                                        Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus. Ut luctus, lacus quis finibus bibendum, tortor nisl tristique mauris, eu efficitur nisi felis sit amet lacus. Duis a euismod erat.
+                                    </p>
+                                </div>
+                            </div>
+                            <div id="lead-html" class="tab-content">
+<pre><code class="html">&lt;p class="lead"&gt;
+    Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus. Ut luctus, lacus quis finibus bibendum, tortor nisl tristique mauris, eu efficitur nisi felis sit amet lacus. Duis a euismod erat.
+&lt;/p&gt;
+</code></pre>
+                            </div>
+                            <div id="lead-files" class="tab-content">
+                                <ul class="files">
+                                    <li>sass/base/_base.scss</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+                    <article>
+                        <h3>Unordered list</h3>
+                        <div class="example-tabs tabs-container">
+                            <ul class="tabs">
+                                <li><a class="example" href="#ul-example">Example</a></li>
+                                <li><a class="html" href="#ul-html">HTML</a></li>
+                                <li><a class="files" href="#ul-files">Files</a></li>
+                            </ul>
+                            <div id="ul-example" class="tab-content">
+                                <div class="example">
+                                    <ul>
+                                        <li>Eins
+                                            <ul>
+                                                <li>Eins.Eins</li>
+                                                <li>Eins.Zwei</li>
+                                            </ul>
+                                        </li>
+                                        <li>Zwei</li>
+                                        <li>Drei</li>
+                                        <li>Vier</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div id="ul-html" class="tab-content">
+<pre><code class="html">&lt;ul&gt;
+    &lt;li&gt;Eins
+        &lt;ul&gt;
+            &lt;li&gt;Eins.Eins&lt;/li&gt;
+            &lt;li&gt;Eins.Zwei&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;Zwei&lt;/li&gt;
+    &lt;li&gt;Drei&lt;/li&gt;
+    &lt;li&gt;Vier&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+                            </div>
+                            <div id="ul-files" class="tab-content">
+                                <ul class="files">
+                                    <li>sass/base/_base.scss</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+                    <article>
+                        <h3>Ordered list</h3>
+                        <div class="example-tabs tabs-container">
+                            <ul class="tabs">
+                                <li><a class="example" href="#ol-example">Example</a></li>
+                                <li><a class="html" href="#ol-html">HTML</a></li>
+                                <li><a class="files" href="#ol-files">Files</a></li>
+                            </ul>
+                            <div id="ol-example" class="tab-content">
+                                <div class="example">
+                                    <ol>
+                                        <li>Eins
+                                            <ol>
+                                                <li>Eins.Eins</li>
+                                                <li>Eins.Zwei</li>
+                                            </ol>
+                                        </li>
+                                        <li>Zwei</li>
+                                        <li>Drei</li>
+                                        <li>Vier</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            <div id="ol-html" class="tab-content">
+<pre><code class="html">&lt;ol&gt;
+    &lt;li&gt;Eins
+        &lt;ol&gt;
+            &lt;li&gt;Eins.Eins&lt;/li&gt;
+            &lt;li&gt;Eins.Zwei&lt;/li&gt;
+        &lt;/ol&gt;
+    &lt;/li&gt;
+    &lt;li&gt;Zwei&lt;/li&gt;
+    &lt;li&gt;Drei&lt;/li&gt;
+    &lt;li&gt;Vier&lt;/li&gt;
+&lt;/ol&gt;
+</code></pre>
+                            </div>
+                            <div id="ol-files" class="tab-content">
+                                <ul class="files">
+                                    <li>sass/base/_base.scss</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </article>
+                    <article>
+                        <h3>Text-links</h3>
+                        <div class="example-tabs tabs-container">
+                            <ul class="tabs">
+                                <li><a class="example" href="#link-example">Example</a></li>
+                                <li><a class="html" href="#link-html">HTML</a></li>
+                                <li><a class="files" href="#link-files">Files</a></li>
+                            </ul>
+                            <div id="link-example" class="tab-content">
+                                <div class="example">
+                                    <p>
+                                        Here you see an <a href="about.html">internal link</a>. Nothing special.
+                                    </p>
+                                    <p>
+                                        An <a href="http://www.alistapart.com">external link</a> is predeced by an appropriate icon. See "sass/misc/_example.scss" for more info.
+                                    </p>
+                                </div>
+                            </div>
+                            <div id="link-html" class="tab-content">
+<pre><code class="html">&lt;p&gt;
+    Here you see an &lt;a href="about.html"&gt;internal link&lt;/a&gt;. Nothing special.
+&lt;/p&gt;
+&lt;p&gt;
+    An &lt;a href="http://www.alistapart.com"&gt;external link&lt;/a&gt; is predeced by an appropriate icon. See "sass/misc/_example.scss" for more info.
+&lt;/p&gt;
+</code></pre>
+                            </div>
+                            <div id="link-files" class="tab-content">
+                                <ul class="files">
+                                    <li>sass/config/_vars.scss</li>
+                                    <li>sass/base/_base.scss</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <h3>Horizontal ruler</h3>
+                        <div class="example-tabs tabs-container">
+                            <ul class="tabs">
+                                <li><a class="example" href="#hr-example">Example</a></li>
+                                <li><a class="html" href="#hr-html">HTML</a></li>
+                                <li><a class="files" href="#hr-files">Files</a></li>
+                            </ul>
+                            <div id="hr-example" class="tab-content">
+                                <div class="example">
+                                    <hr>
+                                </div>
+                            </div>
+                            <div id="hr-html" class="tab-content">
+<pre><code class="html">&lt;hr&gt;</code></pre>
+                            </div>
+                            <div id="hr-files" class="tab-content">
+                                <ul class="files">
+                                    <li>sass/config/_vars.scss</li>
+                                    <li>sass/base/_base.scss</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+                    <article>
+                        <h3>Floating Elements</h3>
+                        <div class="example-tabs tabs-container">
+                            <ul class="tabs">
+                                <li><a class="example" href="#float-example">Example</a></li>
+                                <li><a class="html" href="#float-html">HTML</a></li>
+                                <li><a class="files" href="#float-files">Files</a></li>
+                            </ul>
+                            <div id="float-example" class="tab-content">
+                                <div class="example clearfix">
+                                    <p>
+                                        <img class="floatleft" src="img/nebula.jpg" alt="Nebula">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc luctus dolor a nulla sollicitudin luctus. Aenean in dolor sem. Donec erat neque, pharetra ut massa ut, feugiat maximus tortor. Aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse potenti. Pellentesque ac lacus vel diam tempus tempus. Nulla vel placerat quam. Fusce vel egestas elit. Pellentesque maximus erat ut tortor sollicitudin tincidunt. Nunc quis est id risus posuere pretium. Praesent ut nisi non ipsum molestie tincidunt.
+                                    </p>
+                                    <br clear="all">
+                                    <p>
+                                        <img class="floatright" src="img/nebula.jpg" alt="Nebula">
+                                        Aliquam mollis mauris sed velit ultricies, in blandit eros ultricies. Phasellus pulvinar dolor vel lacinia mollis. Donec tempor justo ac tellus molestie, pellentesque rutrum augue porta. Integer efficitur mi eu porta imperdiet. Nullam tincidunt urna id pellentesque tempus. Aliquam eget varius ligula, vitae vestibulum neque. Morbi nulla urna, rutrum et augue quis, lacinia tempus leo. Donec pulvinar leo lacus, a placerat mauris semper a. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi posuere sapien lacus, sed maximus velit convallis in. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquam tristique libero, aliquam placerat ante porta sit amet. Proin fermentum nisi purus, ut sagittis ligula accumsan sit amet. Aliquam et volutpat diam.
+                                    </p>
+                                </div>
+                            </div>
+                            <div id="float-html" class="tab-content">
+<pre><code class="html">&lt;p&gt;
+    &lt;img class="floatleft" src="img/nebula.jpg" alt="Nebula"&gt;
+    Lorem ipsum dolor sit amet...
+&lt;/p&gt;
+&lt;br clear="all"&gt;
+&lt;p&gt;
+    &lt;img class="floatright" src="img/nebula.jpg" alt="Nebula"&gt;
+    Aliquam mollis mauris sed ...
+&lt;/p&gt;
+</code></pre>
+                            </div>
+                            <div id="float-files" class="tab-content">
+                                <ul class="files">
+                                    <li>sass/base/_base.scss</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+                    <article>
+                        <h3>Responsive Video Embeds</h3>
+                        <p>Embed videos from YouTube, Video, Dailymotion etc. into fluid layouts. The videos maintain an aspect ratio of 16:9 regardless of the available display size.</p>
+                        <div class="example-tabs tabs-container">
+                            <ul class="tabs">
+                                <li><a class="example" href="#embed-example">Example</a></li>
+                                <li><a class="html" href="#embed-html">HTML</a></li>
+                                <li><a class="files" href="#embed-files">Files</a></li>
+                            </ul>
+                            <div id="embed-example" class="tab-content">
+                                <div class="example">
+                                    <div class="embed-container">
+                                        <iframe src="https://player.vimeo.com/video/95392989?color=ffffff&portrait=0"frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p></p>
+                                    </div>
+                                    <a href="https://vimeo.com/95392989">Arcade Fire - We Exist</a> from <a href="https://vimeo.com/thisisdavidwilson">David Wilson</a> on <a href="https://vimeo.com">Vimeo</a>.
+                                </div>
+                            </div>
+                            <div id="embed-html" class="tab-content">
+<pre><code class="html">&lt;div class="embed-container"&gt;
+    &lt;iframe src="https://player.vimeo.com/video/59361603" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+</code></pre>
+                            </div>
+                            <div id="embed-files" class="tab-content">
+                                <ul class="files">
+                                    <li>sass/base/_base.scss</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+                <hr>
+                <section>
+                    <a id="utilities"></a>
+                    <h2>Utilities</h2>
+                    <p><code class="files">tools/_utilities.scss</code> contains a collection of useful helper mixins, functions and classes for many areas of application.</p>
+
+                    <article>
+                        <h3>z-index Management</h3>
+                        <p>Like managing responsive breakpoints, keeping track of your website's z-layers can be far easier and much more convenient if you gather all z-indexes into a single map. Instead of assigning the z-index values directly, write <code class="css">z-index: z({layer-name})</code>. This is especially helpful when you need to debug your code.</p>
+                        <div class="example-tabs tabs-container">
+                            <ul class="tabs">
+                                <li><a class="css" href="#z-scss">SCSS</a></li>
+                                <li><a class="files" href="#z-files">Files</a></li>
+                            </ul>
+                            <div id="z-scss" class="tab-content">
+<pre>
+<code class="css">$z-layers: (
+    header:    30,
+    content:   10,
+    footer:    20
+);
+
+.header {   z-index: z(header);   }
+.content {  z-index: z(content);  }
+.footer  {  z-index: z(footer);   }
+</code></pre>
+                            </div>
+                            <div id="z-files" class="tab-content">
+                                <ul class="files">
+                                    <li>sass/config/_vars.scss (z-index configuration)</li>
+                                    <li>sass/tools/_utilities.scss (the function)</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </article>
+                    <article>
+                        <h3>REM font-size and line-height</h3>
+                        <p>
+                            Especially when dealing with responsive web design, it is recommended using relative values like <b>em</b> or <b>rem</b> for your <code class="css">font size</code>-allocations. By sticking to this principle you are able to change the size of your entire website's typography by editing only the <code class="css">font-size</code> value of the <code class="html">&lt;html&gt;</code>-Element. While <b>em</b> is relative to the font-size of its direct or nearest parent, <b>rem</b> is only relative to the html (root) font-size, making using the latter easier to scale type across the entire page.
+                        </p>
+                        <p>
+                            With this mixin you can use this mixin to set your font-sizes and line-heights the old way - with pixel values (with or without the "px"-units) - and still write code that is fit for responsive web design.
+                        </p>
+                        <p>
+                            Please keep in mind to use <code class="css">html { font-size: 62.5%; }</code> to set up a base font-size of 10px that equals 1rem (15px equals 1.5rem, 24px equals 2.4rem and so on).
+                        </p>
+                        <p>
+                            Of course this mixin has a px-fallback for legacy browsers.
+                        </p>
+                            <a href="http://css-tricks.com/snippets/css/less-mixin-for-rem-font-sizing/">http://css-tricks.com/snippets/css/less-mixin-for-rem-font-sizing/</a>
+                        </p>
+                        <div class="example-tabs tabs-container">
+                            <ul class="tabs">
+                                <li><a class="css" href="#rem-scss">SCSS</a></li>
+                                <li><a class="css" href="#rem-css">Generated CSS</a></li>
+                                <li><a class="files" href="#rem-files">Files</a></li>
+                            </ul>
+                            <div id="rem-scss" class="tab-content">
+<pre>
+<code class="css">p {
+    @include font-size(16px, 24px);
+}
+</code></pre>
+                            </div>
+                            <div id="rem-css" class="tab-content">
+<pre>
+<code class="css">p {
+    font-size: 16px;
+    line-height: 24px;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+}
+</code></pre>
+                            </div>
+                            <div id="rem-files" class="tab-content">
+                                <ul class="files">
+                                    <li>sass/tools/_utilities.scss</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </article>
+                    <article>
+                        <h3>Truncate Text</h3>
+                        <p>
+                            A small mixin ensuring that your text element doesn’t overflow its container and breaks nicely. It takes one parameter, which is any of the valid text-overflow values (the default value "ellipsis", "clip", or a string).
+                        </p>
+                        <p>
+                            <a href="http://hackingui.com/front-end/10-best-scss-utilities/">http://hackingui.com/front-end/10-best-scss-utilities/</a>
+                        </p>
+                        <div class="example-tabs tabs-container">
+                            <ul class="tabs">
+                                <li><a class="example" href="#truncate-example">Example</a></li>
+                                <li><a class="css" href="#truncate-scss">SCSS</a></li>
+                                <li><a class="files" href="#truncate-files">Files</a></li>
+                            </ul>
+                            <div id="truncate-example" class="tab-content">
+                                <div class="example">
+                                    <p class="example-truncate">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in posuere orci. Nam euismod gravida nunc. Ut accumsan vitae dolor interdum ullamcorper. Ut luctus, lacus quis finibus bibendum, tortor nisl tristique mauris, eu efficitur nisi felis sit amet lacus. </p>
+                                </div>
+                            </div>
+                            <div id="truncate-scss" class="tab-content">
+<pre>
+<code class="css">.example-truncate {
+    @include truncate-text; // parameter is optional
+}
+</code></pre>
+                            </div>
+                            <div id="truncate-files" class="tab-content">
+                                <ul class="files">
+                                    <li>sass/tools/_utilities.scss</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </article>
+                    <article>
+                        <h3>@mixin center-vertical</h3>
+                        <p>
+                            For vertically centering inline-block-elements with a dynamic size. Doesn’t require an extra, non-semantic HTML element.
+                        </p>
+                        <p>
+                            <a href="http://hackingui.com/front-end/10-best-scss-utilities/">http://hackingui.com/front-end/10-best-scss-utilities/</a>
+                        </p>
+                        <div class="example-tabs tabs-container">
+                            <ul class="tabs">
+                                <li><a class="example" href="#center-v-example">Example</a></li>
+                                <li><a class="html" href="#center-v-html">HTML</a></li>
+                                <li><a class="css" href="#center-v-scss">SCSS</a></li>
+                                <li><a class="files" href="#center-v-files">Files</a></li>
+                            </ul>
+                            <div id="center-v-example" class="tab-content">
+                                <div class="example">
+                                    <div class="example-center-vert">
+                                        <div class="example-center-vert-item">I am a lonely div inside another lonely div. But at least I am a vertically centered div!</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="center-v-html" class="tab-content">
+<pre>
+<code class="html">&lt;div class="example-center-vert"&gt;
+    &lt;div class="example-center-vert-item"&gt;
+        I am a lonely div inside another lonely div. But at least I am a vertically centered div!
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                            </div>
+                            <div id="center-v-scss" class="tab-content">
+<pre>
+<code class="css">.example-center-vert {
+    @include center-vertical;
+    [...]
+}
+
+.example-center-vert-item {
+    @include inline-block;
+    [...]
+}
+</code></pre>
+                            </div>
+                            <div id="center-v-files" class="tab-content">
+                                <ul class="files">
+                                    <li>sass/tools/_utilities.scss</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+                    <article>
+                        <h3>@mixin center-both</h3>
+                        <p>
+                            Horizontally and vertically center elements with a dynamic size. Works only in modern Browsers.
+                        </p>
+                        <div class="example-tabs tabs-container">
+                            <ul class="tabs">
+                                <li><a class="example" href="#center-b-example">Example</a></li>
+                                <li><a class="html" href="#center-b-html">HTML</a></li>
+                                <li><a class="css" href="#center-b-scss">SCSS</a></li>
+                                <li><a class="files" href="#center-b-files">Files</a></li>
+                            </ul>
+                            <div id="center-b-example" class="tab-content">
+                                <div class="example">
+                                    <div class="example-center-both">
+                                        <div class="example-center-both-item">I am a lonely div inside another lonely div. But at least I am a perfectly centered div!</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="center-b-html" class="tab-content">
+<pre>
+<code class="html">&lt;div class="example-center-both"&gt;
+    &lt;div class="example-center-both-item"&gt;
+        I am a lonely div inside another lonely div. But at least I am a perfectly centered div!
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                            </div>
+                            <div id="center-b-scss" class="tab-content">
+<pre>
+<code class="css">.example-center-both {
+    position: relative;
+    [...]
+}
+
+.example-center-both-item {
+    @include center-both;
+    [...]
+}
+</code></pre>
+                            </div>
+                            <div id="center-b-files" class="tab-content">
+                                <ul class="files">
+                                    <li>sass/tools/_utilities.scss</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+                    <article>
+                        <h3>Triangle</h3>
+                        <p>
+                            <code class="css">@mixin triangle</code> creates a right angled triangle pointing to a direction specified by <code class="css">$direction</code>. <code class="css">@mixin triangle-absolute</code> further provides styles for absolute positioning of pseudo-elements.
+                        </p>
+                        <div class="example-tabs tabs-container">
+                            <ul class="tabs">
+                                <li><a class="example" href="#triangle-example">Example</a></li>
+                                <li><a class="html" href="#triangle-html">HTML</a></li>
+                                <li><a class="css" href="#triangle-scss">SCSS</a></li>
+                                <li><a class="files" href="#triangle-files">Files</a></li>
+                            </ul>
+                            <div id="triangle-example" class="tab-content">
+                                <div class="example">
+                                    <span class="triangle01">Me haz triangle</span>
+                                </div>
+                            </div>
+                            <div id="triangle-html" class="tab-content">
+<pre>
+<code class="html">&lt;span class="tooltip"&gt;Me haz triangle&lt;/span&gt;
+</code></pre>
+                            </div>
+                            <div id="triangle-scss" class="tab-content">
+<pre>
+<code class="css">.tooltip {
+    position: relative;
+    [...]
+    &:before {
+        @include triangle-absolute(bottom, 10px, $blue1);
+        bottom: -10px;
+        left: 50%;
+        @include translate(-50%, 0);
+    }
+}
+</code></pre>
+                            </div>
+                            <div id="triangle-files" class="tab-content">
+                                <ul class="files">
+                                    <li>sass/tools/_utilities.scss</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+                    <article>
+                        <h3>Gradient Transition</h3>
+                        <p>
+                            <code class="css">@mixin gradient-transition</code> creates a :hover-transition-effect with a gradient.
+                        </p>
+                        <div class="example-tabs tabs-container">
+                            <ul class="tabs">
+                                <li><a class="example" href="#gtrans-example">Example</a></li>
+                                <li><a class="css" href="#gtrans-scss">SCSS</a></li>
+                                <li><a class="files" href="#gtrans-files">Files</a></li>
+                            </ul>
+                            <div id="gtrans-example" class="tab-content">
+                                <div class="example">
+                                    <a class="transition1" href="javascript://">Me haz transition</a>
+                                </div>
+                            </div>
+                            <div id="gtrans-scss" class="tab-content">
+<pre>
+<code class="css">.button {
+    @include gradient-transition($grey5, $grey4, 0.25s);
+    [...]
+}
+</code></pre>
+                            </div>
+                            <div id="gtrans-files" class="tab-content">
+                                <ul class="files">
+                                    <li>sass/tools/_utilities.scss</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+                    <article>
+                        <h3>Positioning mixins</h3>
+                        <p>By Oliver Lohkemper.</p>
+                        <p>The Sass-mixins <code class="css">@mixin absolute</code>, <code class="css">@mixin fixed</code> and <code class="css">@mixin relative</code> offer a convenient way to position your website's elements by shorthand. Each mixin takes one argument consisting of up to four values that match the four offset properties. If you want to leave out a property, just use the value <code class="css">null</code>.</p>
+                        <div class="example-tabs tabs-container">
+                            <ul class="tabs">
+                                <li><a class="example" href="#pos-example">Example</a></li>
+                                <li><a class="css" href="#pos-scss">SCSS</a></li>
+                                <li><a class="css" href="#pos-css">Generated CSS</a></li>
+                                <li><a class="files" href="#pos-files">Files</a></li>
+                            </ul>
+                            <div id="pos-example" class="tab-content">
+                                <div class="example">
+                                    <div class="example-pos-wrapper">
+                                        <div class="example-pos example-pos1">.example-pos1</div>
+                                        <div class="example-pos example-pos2">.example-pos2</div>
+                                        <div class="example-pos example-pos3">.example-pos3</div>
+                                        <div class="example-pos example-pos4">.example-pos4</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="pos-scss" class="tab-content">
+<pre><code class="css">.example-pos1 {
+    /*
+        top: 10px
+        right: 20px
+        bottom: null
+        left: 40px
+    */
+    @include absolute(10px 20px null 40px);
+}
+
+.example-pos2 {
+    /*
+        top: null
+        right & left: 50px
+        bottom: 20px
+    */
+    @include absolute(null 50px 20px);
+}
+
+.example-pos3 {
+    /*
+        top & bottom: 120px
+        right & left: 0
+    */
+    @include absolute(120px 0);
+}
+
+.example-pos4 {
+    /*
+        top & bottom & right & left: 70px
+    */
+    @include absolute(70px);
+}
+</code></pre>
+                            </div>
+                            <div id="pos-css" class="tab-content">
+<pre><code class="css">.example-pos1 {
+    top: 10px;
+    right: 20px;
+    left: 40px;
+    position: absolute;
+}
+
+.example-pos2 {
+    right: 50px;
+    bottom: 20px;
+    left: 50px;
+    position: absolute;
+}
+
+.example-pos3 {
+    top: 120px;
+    right: 0;
+    bottom: 120;
+    left: 0;
+    position: absolute;
+}
+
+.example-pos4 {
+    top: 70px;
+    right: 70px;
+    bottom: 70px;
+    left: 70px;
+    position: absolute;
+}
+</code></pre>
+                            </div>
+                            <div id="pos-files" class="tab-content">
+                                <ul class="files">
+                                    <li>sass/tools/_utilities.scss</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </article>
+                    <article>
+                        <h3>Columns with synced heights</h3>
+                        <p><a href="https://github.com/ginader/syncHeight">syncHeight Plugin for YAML</a></p>
+                        <div class="example-tabs tabs-container">
+                            <ul class="tabs">
+                                <li><a class="example" href="#cols-h-example">Example</a></li>
+                                <li><a class="html" href="#cols-h-html">HTML</a></li>
+                                <li><a class="files" href="#cols-h-files">Files</a></li>
+                            </ul>
+                            <div id="cols-h-example" class="tab-content">
+                                <div class="example">
+
+                                    <div class="example-grid sync-height">
+                                        <div class="example-equal-1 example-module-2">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a ligula vitae risus vulputate venenatis. Donec luctus, sapien non maximus interdum, risus elit condimentum enim, a commodo metus ipsum vel erat.
+                                        </div>
+                                        <div class="example-equal-2 example-module-2">
+                                            Maecenas ac purus vitae leo pellentesque congue a id nisi. Phasellus ultrices interdum tellus eget auctor. Morbi tristique lectus sed mi malesuada, in sagittis massa consequat. Sed sed accumsan nisl. Sed bibendum gravida lorem eu tristique. Aliquam facilisis congue venenatis. Proin dui neque, commodo eget leo eget, pretium ornare lacus.
+                                        </div>
+                                        <div class="example-equal-3 example-module-2">
+                                            Ut pretium orci arcu, vitae pharetra neque pharetra sed.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="cols-h-html" class="tab-content">
+<pre><code class="html">&lt;div class="sync-height"&gt;
+    &lt;div&gt;
+        ...
+    &lt;/div&gt;
+    &lt;div&gt;
+        ...
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+                            </div>
+                            <div id="cols-h-files" class="tab-content">
+                                <ul class="files"><li>js/lib/jquery.syncheight.js</li>
+                                <li>js/syncheight.js</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+                    <article>
+                        <h3>Custom counters for ordered lists</h3>
+                        <div class="example-tabs tabs-container">
+                            <ul class="tabs">
+                                <li><a class="example" href="#ol-c-example">Example</a></li>
+                                <li><a class="html" href="#ol-c-html">HTML</a></li>
+                                <li><a class="files" href="#ol-c-files">Files</a></li>
+                            </ul>
+                            <div id="ol-c-example" class="tab-content">
+                                <div class="example">
+                                    <ol class="custom-counter">
+                                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce turpis lectus, gravida sed rutrum sit amet, lobortis at sem. Donec nec egestas tortor. Vestibulum eget purus ac lorem pellentesque elementum ac ac sapien.</li>
+                                        <li>Praesent iaculis faucibus gravida. Donec rutrum lorem enim, eu ultricies lorem porttitor sed. Nullam ut auctor turpis. Donec quis sollicitudin lacus. Vivamus vel tortor molestie, volutpat erat a, varius massa.</li>
+                                        <li>Integer sed feugiat libero, non egestas nisi. Fusce at arcu bibendum risus ullamcorper faucibus nec sed felis.</li>
+                                        <li>Aenean placerat viverra libero non luctus. Sed blandit ligula scelerisque nisl gravida, hendrerit pulvinar urna vestibulum. In posuere sapien sit amet augue bibendum, eget accumsan leo sollicitudin. Nam dictum vehicula massa ac finibus. Ut pretium mauris ut volutpat dapibus.</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            <div id="ol-c-html" class="tab-content">
+<pre><code class="html">&lt;ol class="custom-counter"&gt;
+    &lt;li&gt;Eins&lt;/li&gt;
+    &lt;li&gt;Zwei&lt;/li&gt;
+    &lt;li&gt;Drei&lt;/li&gt;
+    &lt;li&gt;Vier&lt;/li&gt;
+&lt;/ol&gt;
+</code></pre>
+                            </div>
+                            <div id="ol-c-files" class="tab-content">
+                                <ul class="files">
+                                    <li>sass/tools/lists.scss</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </article>
+                </section>
+                <hr>
+
+                <section>
+                    <a id="rwd"></a>
+                    <h2>Responsive Web Design</h2>
+                    <p>Mixins, functions and classes that may help you building a responsive website can be found in <code class="files">tools/_responsive.scss</code>.</p>
+                    <article>
+                        <h3>Global breakpoint configuration</h3>
+                        <p>When creating a responsive site, use the Sass-map <code class="css">$breakpoints</code> in <code class="files">sass/config/_vars.scss</code> to map names to the values, making breakpoint management easier. By sticking to this map you are able to keep track of your breakpoint values and to change your media queries globally without accidently overlooking one.</p>
+                        <p>Add more breakpoints as you like or change the names and values entirely. But make sure to order the values in an upward direction, starting with the smallest one, followed by the second smallest one and so on. You may profit by the following mixins and classes that rely on <code class="css">$breakpoints</code>.</p>
+
+                        <div class="example-tabs tabs-container">
+                            <ul class="tabs">
+                                <li><a class="css" href="#gbc-scss">SCSS</a></li>
+                                <li><a class="files" href="#gbc-files">Files</a></li>
+                            </ul>
+                            <div id="gbc-scss" class="tab-content">
+<pre>
+<code class="css">$breakpoints: (
+    small:  500px,
+    medium: 700px,
+    big:    900px
+);
+</code></pre>
+                            </div>
+                            <div id="gbc-files" class="tab-content">
+                                <ul class="files">
+                                    <li>sass/config/_vars.scss</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+                    <article>
+                        <h3>@mixin bp</h3>
+                        <p>Dynamic breakpoint mixin for responsive webdesign. Use it to create min-width media queries tied to your <code class="css">$breakpoints</code>.</p>
+                        <div class="example-tabs tabs-container">
+                            <ul class="tabs">
+                                <li><a class="css" href="#bp-scss">SCSS</a></li>
+                                <li><a class="css" href="#bp-css">Generated CSS</a></li>
+                                <li><a class="files" href="#bp-files">Files</a></li>
+                            </ul>
+                            <div id="bp-scss" class="tab-content">
+
+<pre>
+<code class="css">$breakpoints: (
+    small:  500px,
+    medium: 700px,
+    big:    900px
+);
+
+.wrapper {
+    /* Styles for mobile resolution */
+
+    @include bp(small) {
+        /* Styles for small resolution */
+    }
+
+    @include bp(medium) {
+        /* Styles for medium resolution */
+    }
+
+    @include bp(big) {
+        /* Styles for big resolution */
+    }
+}
+</code></pre>
+                            </div>
+                            <div id="bp-css" class="tab-content">
+<pre>
+<code class="css">.wrapper {
+    /* Styles for mobile resolution */
+}
+
+@media (min-width: 500px) {
+    .wrapper {
+        /* Styles for small resolution */
+    }
+}
+
+@media (min-width: 700px) {
+    .wrapper {
+        /* Styles for medium resolution */
+    }
+}
+
+@media (min-width: 900px) {
+    .wrapper {
+        /* Styles for big resolution */
+    }
+}
+</code></pre>
+                            </div>
+                            <div id="bp-files" class="tab-content">
+                                <ul class="files">
+                                    <li>sass/config/_vars.scss (breakpoint configuration)</li>
+                                    <li>sass/tools/_responsive.scss (the mixin)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+                    <article>
+                        <h3>@mixin bp-max</h3>
+                        <p>Another dynamic breakpoint mixin creating max-width media queries instead. Please keep in mind that this mixin substracts 1px from all values of <code class="css">$breakpoints</code> since they are considered to be min-width breakpoints in the proper sense.</p>
+                        <div class="example-tabs tabs-container">
+                            <ul class="tabs">
+                                <li><a class="css" href="#bp-max-scss">SCSS</a></li>
+                                <li><a class="css" href="#bp-max-css">Generated CSS</a></li>
+                                <li><a class="files" href="#bp-max-files">Files</a></li>
+                            </ul>
+                            <div id="bp-max-scss" class="tab-content">
+<pre>
+<code class="css">$breakpoints: (
+    small:  500px,
+    medium: 700px,
+    big:    900px
+);
+
+.wrapper {
+    /* Styles for desktop resolution */
+
+    @include bp-max(big) {
+        /* Styles for medium resolution */
+    }
+
+    @include bp-max(medium) {
+        /* Styles for small resolution */
+    }
+
+    @include bp-max(small) {
+        /* Styles for mobile resolution */
+    }
+}
+</code></pre>
+                            </div>
+                            <div id="bp-max-css" class="tab-content">
+                            <pre>
+<code class="css">.wrapper {
+    /* Styles for big resolution */
+}
+
+@media (max-width: 499px) {
+    .wrapper {
+        /* Styles for mobile resolution */
+    }
+}
+
+@media (max-width: 699px) {
+    .wrapper {
+        /* Styles for small resolution */
+    }
+}
+
+@media (max-width: 899px) {
+    .wrapper {
+        /* Styles for medium resolution */
+    }
+}
+</code></pre>
+                            </div>
+                            <div id="bp-max-files" class="tab-content">
+                                <ul class="files">
+                                    <li>sass/config/_vars.scss (breakpoint configuration)</li>
+                                    <li>sass/tools/_responsive.scss (the mixin)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+                    <article>
+                        <h3>@mixin hd</h3>
+                        <p>"Retina" breakpoint mixin.</p>
+                        <div class="example-tabs tabs-container">
+                            <ul class="tabs">
+                                <li><a class="css" href="#hd-scss">SCSS</a></li>
+                                <li><a class="css" href="#hd-css">Generated CSS</a></li>
+                                <li><a class="files" href="#hd-files">Files</a></li>
+                            </ul>
+                            <div id="hd-scss" class="tab-content">
+<pre>
+<code class="css">.logo {
+    background: url("logo-100x50.png");
+}
+
+    @include hd {
+        background: url("logo-200x100.png");
+        background-size: 100px 50px;
+    }
+}
+</code></pre>
+                            </div>
+                            <div id="hd-css" class="tab-content">
+<pre>
+<code class="css">.logo {
+    background: url("logo-100x50.png");
+}
+
+@media (-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .logo {
+        background: url("logo-200x100.png");
+        background-size: 100px 50px;
+    }
+}
+</code></pre>
+                            </div>
+                            <div id="hd-files" class="tab-content">
+                                <ul class="files">
+                                    <li>sass/tools/_responsive.scss</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+                    <article>
+                        <h3>Responsive helper classes</h3>
+                        <p>Based on the names and values of your <code class="css">$breakpoints</code>-map, helper classes are generated that help you letting block-level-elements appear or vanish at specific min-width breakpoints.</p>
+                        <div class="example-tabs tabs-container">
+                            <ul class="tabs">
+                                <li><a class="example" href="#rhc-example">Example</a></li>
+                                <li><a class="css" href="#rhc-scss">SCSS</a></li>
+                                <li><a class="files" href="#rhc-files">Files</a></li>
+                            </ul>
+                            <div id="rhc-example" class="tab-content">
+                                <div class="example">
+                                    <p>Currently visible:</p>
+                                    <div class="hide-small">.hide-small</div>
+                                    <div class="hide-medium">.hide-medium</div>
+                                    <div class="hide-big">.hide-big</div>
+                                    <div class="reveal-small">.reveal-small</div>
+                                    <div class="reveal-medium">.reveal-medium</div>
+                                    <div class="reveal-big">.reveal-big</div>
+                                    <br>
+                                    <p>(Resize browser window to change values)</p>
+                                </div>
+                            </div>
+                            <div id="rhc-scss" class="tab-content">
+<pre>
+<code class="css">/*
+breakpoint configuation
+*/
+$breakpoints: (
+    small:  500px,
+    medium: 700px,
+    big:    900px
+);
+
+/*
+The following classes are generated according to the breakpoint configuation above:
+*/
+.reveal-small {...}
+.reveal-medium {...}
+.reveal-big {...}
+.hide-small {...}
+.hide-medium {...}
+.hide-big {...}
+</code></pre>
+                            </div>
+                            <div id="rhc-files" class="tab-content">
+                                <ul class="files">
+                                    <li>sass/config/_vars.scss (breakpoint configuration)</li>
+                                    <li>sass/tools/_responsive.scss (the generator)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+                    <article>
+                        <h3>#responsive status</h3>
+                        <p>This feature allows you to add jQuery code to your responsive web design, such as - for example - programming a menu that not only looks and but also behaves differently in various screen resolutions. Once again the editable Sass-map <code class="css">$breakpoints</code> is the starting point for this feature.</p>
+                        <p> The HTML-element <code class="html">&lt;span id="responsive-status"&gt;&lt;/span&gt;</code> has to be placed inside your main layout file. Its css-attribute <code class="css">font-family</code> will be set to the name of the currently active min-width breakpoint. This attribute can be read via JavaScript-Code, so your scripts can react to specific screen resolutions. The jQuery-Code below is located in the file <code class="files">js/responsive.js</code>. You may have to change the function <code class="js">checkResponsiveStatus</code> or more specifically the <code class="js">switch(status)</code>-expression so that the cases match the names of your breakpoints in <code class="css">$breakpoints</code> which your jQuery code should react to.</p>
+                        <p>As an additional gimmick, the class-attribute of the <code class="html">&lt;body&gt;</code>-tag will be set to a value being the name of the currently active min-width breakpoint, prefixed with "responsive-". For example it says <code class="html">&lt;body class="responsive-medium"&gt;</code> for the breakpoint called "medium". This helps you to make your responsive site compatible to legacy browsers if necessary.</p>
+                        <div class="example-tabs tabs-container">
+                            <ul class="tabs">
+                                <li><a class="example" href="#rs-example">Example</a></li>
+                                <li><a class="html" href="#rs-html">HTML</a></li>
+                                <li><a class="css" href="#rs-scss">SCSS</a></li>
+                                <li><a class="js" href="#rs-js">jQuery</a></li>
+                                <li><a class="files" href="#rs-files">Files</a></li>
+                            </ul>
+                            <div id="rs-example" class="tab-content">
+                                <div class="example">
+                                    <p>
+                                        <b>Current status:</b> <span class="example-rs"></span><br>
+                                        <b>&lt;body&gt;-classname:</b> responsive-<span class="example-rs"></span>
+                                    </p>
+                                    <p>(Resize browser window to change values)</p>
+                                </div>
+                            </div>
+                            <div id="rs-html" class="tab-content">
+<pre><code class="html">&lt;span id="responsive-status"&gt;&lt;/span&gt;</code></pre>
+                            </div>
+                            <div id="rs-scss" class="tab-content">
+<pre><code class="css">$breakpoints: (
+    small:  500px,
+    medium: 700px,
+    big:    900px
+);
+
+#responsive-status {
+    display: none;
+    font-family: "mobile";
+}
+@each $breakpoint in $breakpoints {
+    $name: nth($breakpoint, 1);
+    $width: nth($breakpoint, 2);
+    @media (min-width: $width) {
+        #responsive-status {
+            font-family: "#{$name}";
+        }
+    }
+}
+</code></pre>
+                            </div>
+                            <div id="rs-js" class="tab-content">
+<pre>
+<code class="js">function checkResponsiveStatus() {
+    var status = $('#responsive-status').css('font-family');
+
+    if (status != laststatus) {
+
+        // Set &lt;body&gt; classname to responsive-{name of current breakpoint}
+        $('body').removeClass (function (index, css) {
+            return (css.match (/(^|\s)responsive-\S+/g) || []).join(' ');
+        });
+        $('body').addClass("responsive-" + status);
+
+        // Call functions tied to current breakpoint
+        // Add your own cases if you like
+        switch(status) {
+            case "mobile":
+                console.log("JavaScript-Code for mobile resolution");
+                break;
+
+            case "small":
+                console.log("JavaScript-Code for small resolution");
+                break;
+
+            case "medium":
+                console.log("JavaScript-Code for medium resolution");
+                break;
+
+            case "big":
+                console.log("JavaScript-Code for big resolution");
+                break;
+        }
+    }
+    laststatus = status;
+}
+
+var laststatus = false;
+
+$(document).ready(function() {
+
+    $( window ).bind( "resize", function(){
+        checkResponsiveStatus();
+    });
+
+    checkResponsiveStatus();
+
+});
+</code></pre>
+                            </div>
+                            <div id="rs-files" class="tab-content">
+                                <ul class="files">
+                                    <li>sass/config/_vars.scss (breakpoint configuration)</li>
+                                    <li>sass/tools/_responsive.scss (SCSS-code)</li>
+                                    <li>example.html (HTML-code)</li>
+                                    <li>js/responsive.js (jQuery-Code)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+                <hr>
+
+                <section>
+                    <a id="grid"></a>
+                    <h2>Grid</h2>
+                    <p>
+                        When building a responsive website, I recommend using the Sass-map <code class="css">$breakpoints</code> to keep track of your responsive breakpoints. Also, use the mixin <code class="css">@mixin bp</code> to write your @media-queries. Both are described in the <a href="#tools">tools section</a>.
+                    </p>
+                    <h3>Susy</h3>
+                    <p>
+                        Responsive grid system.
+                    </p>
+                    <p>
+                        Official Website: <a href="http://susy.oddbird.net/">http://susy.oddbird.net/</a><br>
+                        A good Susy tutorial: <a href="http://www.smashingmagazine.com/2015/07/smarter-grids-with-sass-and-susy/">http://www.smashingmagazine.com/2015/07/smarter-grids-with-sass-and-susy/</a>
+                    </p>
+
+                    <div class="example-tabs tabs-container">
+                        <ul class="tabs">
+                            <li><a class="example" href="#cols-s-example">Example</a></li>
+                            <li><a class="html" href="#cols-s-html">HTML</a></li>
+                            <li><a class="css" href="#cols-s-scss">SCSS</a></li>
+                            <li><a class="files" href="#cols-s-files">Files</a></li>
+                        </ul>
+                        <div id="cols-s-example" class="tab-content">
+                            <div class="example">
+                                <div class="example-grid">
+                                    <div class="example-col-1">
+                                        <div class="example-module">
+                                            <div class="hide-small">(none)</div>
+                                            <div class="reveal-small hide-medium">@include bp(small) {   @include span(6);   }</div>
+                                            <div class="reveal-medium">@include bp(medium) {   @include span(4);   }</div>
+                                        </div>
+                                    </div>
+                                    <div class="example-col-2">
+                                        <div class="example-module">
+                                            <div class="hide-small">(none)</div>
+                                            <div class="reveal-small hide-medium">@include bp(small) {   @include span(6);   }</div>
+                                            <div class="reveal-medium">@include bp(medium) {   @include span(4);   }</div>
+                                        </div>
+                                    </div>
+                                    <div class="example-col-3 reveal-medium">
+                                        <div class="example-module">
+                                            <div class="reveal-medium">@include bp(medium) {   @include span(4);   }</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="example-grid">
+                                    <div class="example-col-4">
+                                        <div class="example-module">
+                                            <div class="hide-small">(none)</div>
+                                            <div class="reveal-small hide-medium">@include bp(small) {    @include span(6);   }</div>
+                                            <div class="reveal-medium hide-big">@include bp(medium) {   @include span(4);   }</div>
+                                            <div class="reveal-big">@include bp(big) {      @include span(3);   }</div>
+                                        </div>
+                                    </div>
+                                    <div class="example-col-5">
+                                        <div class="example-module">
+                                            <div class="hide-small">(none)</div>
+                                            <div class="reveal-small hide-medium">@include bp(small) {    @include span(6 last);   }</div>
+                                            <div class="reveal-medium hide-big">@include bp(medium) {   @include span(8 last);   }</div>
+                                            <div class="reveal-big">@include bp(big) {      @include span(9 last);   }</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="cols-s-html" class="tab-content">
+<pre><code class="html">&lt;div class="container"&gt;
+    &lt;div class="sidebar"&gt;
+        ...
+    &lt;/div&gt;
+    &lt;div class="content"&gt;
+        ...
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                        </div>
+                        <div id="cols-s-scss" class="tab-content">
+<pre><code class="css">/*
+# Susy settings
+
+Global settings for susy grid system.
+http://susydocs.oddbird.net/en/latest/settings/
+*/
+$susy: (
+    columns:            12,
+    gutters:            1/3,
+    container:          $max-width,
+    global-box-sizing:  border-box
+);
+
+.container {
+    @include container;
+}
+
+.sidebar {
+    @include bp(small) {    @include span(6);   }
+    @include bp(medium) {   @include span(4);   }
+    @include bp(big) {      @include span(3);   }
+}
+
+.content {
+    @include bp(small) {    @include span(6 last);  }
+    @include bp(medium) {   @include span(8 last);  }
+    @include bp(big) {      @include span(9 last);  }
+}
+</code></pre>
+
+                        </div>
+                        <div id="cols-s-files" class="tab-content">
+                            <ul class="files">
+                                <li>sass/config/_vars.scss</li>
+                                <li>bower_components/susy/</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h3>Easygrid</h3>
+                    <p>Very basic, selfmade grid. Classes are mandatory for "form kitchen sink" (see below).</p>
+                    <div class="example-tabs tabs-container">
+                        <ul class="tabs">
+                            <li><a class="example" href="#cols-e-example">Example</a></li>
+                            <li><a class="html" href="#cols-e-html">HTML</a></li>
+                            <li><a class="files" href="#cols-e-files">Files</a></li>
+                        </ul>
+                        <div id="cols-e-example" class="tab-content">
+                            <div class="example">
+                                <div class="grid">
+                                    <div class="col-1of4">
+                                        <div class="example-module-2">.col-1of4</div>
+                                    </div>
+                                    <div class="col-1of4">
+                                        <div class="example-module-2">.col-1of4</div>
+                                    </div>
+                                    <div class="col-1of4">
+                                        <div class="example-module-2">.col-1of4</div>
+                                    </div>
+                                    <div class="col-1of4">
+                                        <div class="example-module-2">.col-1of4</div>
+                                    </div>
+                                </div>
+                                <div class="grid">
+                                    <div class="col-1of1">
+                                        <div class="example-module-2">.col-1of1</div>
+                                    </div>
+                                </div>
+                                <div class="grid">
+                                    <div class="col-1of2">
+                                        <div class="example-module-2">.col-1of2</div>
+                                    </div>
+                                    <div class="col-1of2">
+                                        <div class="example-module-2">.col-1of2</div>
+                                    </div>
+                                </div>
+                                <div class="grid">
+                                    <div class="col-1of3">
+                                        <div class="example-module-2">.col-1of3</div>
+                                    </div>
+                                    <div class="col-2of3">
+                                        <div class="example-module-2">.col-2of3</div>
+                                    </div>
+                                </div>
+                                <div class="grid">
+                                    <div class="col-1of4">
+                                        <div class="example-module-2">.col-1of4</div>
+                                    </div>
+                                    <div class="col-3of4">
+                                        <div class="example-module-2">.col-3of4</div>
+                                    </div>
+                                </div>
+                                <div class="grid">
+                                    <div class="col-2of5">
+                                        <div class="example-module-2">.col-2of5</div>
+                                    </div>
+                                    <div class="col-3of5">
+                                        <div class="example-module-2">.col-3of5</div>
+                                    </div>
+                                </div>
+                                <div class="grid">
+                                    <div class="col-1of5">
+                                        <div class="example-module-2">.col-1of5</div>
+                                    </div>
+                                    <div class="col-4of5">
+                                        <div class="example-module-2">.col-4of5</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="cols-e-html" class="tab-content">
+<pre>
+<code class="html">&lt;div class="grid"&gt;
+    &lt;div class="col-1of5"&gt;
+        ...
+    &lt;/div&gt;
+    &lt;div class="col-4of5"&gt;
+        ...
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                        </div>
+                        <div id="cols-e-files" class="tab-content">
+                            <ul class="files">
+                                <li>sass/config/_vars.scss</li>
+                                <li>sass/tools/_easygrid.scss</li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                </section>
+                <hr>
+                <section>
+                    <a id="forms"></a>
+                    <h2>Forms</h2>
+                    <h3><span>Best Practice</span> Forms</h3>
+                    <p>Based on <a href="http://codepen.io/njsteele/pen/ajLpb">Form Kitchen Sink</a></p>
+                    <h4>This example meets the following requirements:</h4>
+                    <ul>
+                        <li>Container independent, flexible widths in percent</li>
+                        <li>Responsive, linearizable, mobile-ready</li>
+                        <li>Browser support: IE9 and up, Chrome latest, Safari latest, Firefox latest, Opera latest, major mobile browsers</li>
+                        <li>2 variants: labels left (for most forms) and labels above (small or narrow forms)</li>
+                        <li>Doesn't break with multi-line labels</li>
+                        <li>Client-side validation via HTML5 input types and JavaScript support</li>
+                        <li>Inline error messages</li>
+                        <li>Backend/templating friendly
+                            <ul>
+                                <li>Suitable for using label/input/error includes/snippets</li>
+                                <li>Slim and flexible markup</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="example-tabs tabs-container">
+                        <ul class="tabs">
+                            <li><a class="example" href="#form-example">Example</a></li>
+                            <li><a class="html" href="#form-html">HTML</a></li>
+                            <li><a class="files" href="#form-files">Files</a></li>
+                        </ul>
+                        <div id="form-example" class="tab-content">
+                            <div class="example">
+
+                                <form action="#" method="get">
+                                    <fieldset class="wideform">
+                                        <h3 class="legend">Form kitchen sink</h3>
+                                        <p><b>Labels left:</b> Suitable for most forms<br/>
+                                        <b>Labels above:</b> Better for short or narrow forms</p>
+                                        <a href="javascript://" class="btn js_toggleLabelPosition">Switch label position</a>
+
+                                        <hr>
+
+                                        <div class="formrow">
+                                            <div class="formitem">
+                                                <div class="label req">Salutation</div>
+                                                <div class="ticks">
+                                                    <label>
+                                                        <input type="radio" name="salutation" value="mrs" required="required"/>
+                                                        <span>Mrs.</span>
+                                                    </label>
+                                                    <label>
+                                                        <input type="radio" name="salutation" value="mr" required="required"/>
+                                                        <span>Mr.</span>
+                                                    </label>
+                                                    <label>
+                                                        <input type="radio" name="salutation" value="miss" required="required"/>
+                                                        <span>Miss</span>
+                                                    </label>
+                                                    <label>
+                                                        <input type="radio" name="salutation" value="jack" required="required"/>
+                                                        <span>Jack</span>
+                                                    </label>
+                                                    <label>
+                                                        <input type="radio" name="salutation" value="queen" required="required"/>
+                                                        <span>Queen</span>
+                                                    </label>
+                                                    <label>
+                                                        <input type="radio" name="salutation" value="king" required="required"/>
+                                                        <span>King</span>
+                                                    </label>
+                                                    <label>
+                                                        <input type="radio" name="salutation" value="sir" required="required"/>
+                                                        <span>Sir</span>
+                                                    </label>
+                                                    <label>
+                                                        <input type="radio" name="salutation" value="lord" required="required"/>
+                                                        <span>Lord</span>
+                                                    </label>
+                                                    <label>
+                                                        <input type="radio" name="salutation" value="master" required="required"/>
+                                                        <span>Master</span>
+                                                    </label>
+                                                    <label>
+                                                        <input type="radio" name="salutation" value="president" required="required"/>
+                                                        <span>President</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="formrow">
+                                            <label class="label req" for="firstname">First/last name</label>
+                                            <div class="formitem col-1of2">
+                                                <label class="label req" for="firstname">First name</label>
+                                                <input type="text" name="firstname" id="firstname" placeholder="Placeholder" required="required" x-autocompletetype="given-name"/>
+                                            </div>
+                                            <div class="formitem col-1of2">
+                                                <label class="label req" for="firstname">Last name</label>
+                                                <input type="text" name="lastname" id="lastname" placeholder="... with polyfill" required="required" x-autocompletetype="family-name"/>
+                                            </div>
+                                        </div>
+                                        <div class="formrow">
+                                            <div class="formitem col-1of3">
+                                                <label class="label" for="zip">Zip</label>
+                                                <input type="text" name="zip" id="zip" pattern="[0-9]{5}" x-autocompletetype="postal-code"/>
+                                            </div>
+                                            <div class="formitem col-2of3">
+                                                <label class="label" for="zip">City</label>
+                                                <input type="text" name="city" id="city" x-autocompletetype="city"/>
+                                            </div>
+                                        </div>
+                                        <div class="formrow">
+                                            <div class="formitem col-1of2">
+                                                <label class="label" for="email">Email</label>
+                                                <input type="email" name="email" id="email" x-autocompletetype="email"/>
+                                            </div>
+                                            <div class="formitem col-1of2">
+                                                <label class="label" for="phone">Phone... Some more text for testing super long labels. It will happen, clients will do that. Lorem ipsum dolor sit amet, consectetuer adipiscing elit...</label>
+                                                <input type="tel" name="phone" id="phone" x-autocompletetype="tel"/>
+                                            </div>
+                                        </div>
+                                        <div class="formrow">
+                                            <div class="formitem col-1of2">
+                                                <label class="label" for="website">Your website, blog, Ihr Google Plus, Twitter or Facebook profile, whatever. Lots of text for testing really long labels, you know...</label>
+                                                <input type="url" name="website" id="website" x-autocompletetype="url"/>
+                                            </div>
+                                            <div class="formitem col-1of2">
+                                                <a href="javascript://" class="btn">Link button</a>
+                                                <button type="button" class="btn btn-disabled" disabled="disabled">Disabled button</button>
+                                            </div>
+                                        </div>
+                                        <div class="formrow">
+                                            <div class="formitem col-1of2">
+                                                <label class="label" for="password">Password</label>
+                                                <input type="password" placeholder="Password" name="password" id="password"/>
+                                            </div>
+                                            <div class="formitem col-1of2">
+                                                <input type="password" placeholder="Password again" name="passwordagain" id="passwordagain"/>
+                                            </div>
+                                        </div>
+                                        <div class="formrow">
+                                            <div class="formitem">
+                                                <label class="label req" for="message">Message</label>
+                                                <textarea name="message" id="message" cols="40" rows="5" required="required"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="formrow">
+                                            <div class="formitem">
+                                                <div class="label req">Your rating</div>
+                                                <div class="rating">
+                                                    <input type="radio" name="rating" value="5" id="rating5" required="required"/>
+                                                    <label for="rating5" class="star">
+                                                        <span>5 stars</span>
+                                                    </label>
+                                                    <input type="radio" name="rating" value="4" id="rating4" required="required"/>
+                                                    <label for="rating4" class="star">
+                                                        <span>4 stars</span>
+                                                    </label>
+                                                    <input type="radio" name="rating" value="3" id="rating3" required="required"/>
+                                                    <label for="rating3" class="star">
+                                                        <span>3 stars</span>
+                                                    </label>
+                                                    <input type="radio" name="rating" value="2" id="rating2" required="required"/>
+                                                    <label for="rating2" class="star">
+                                                        <span>2 stars</span>
+                                                    </label>
+                                                    <input type="radio" name="rating" value="1" id="rating1" required="required"/>
+                                                    <label for="rating1" class="star">
+                                                        <span>1 star</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="formrow">
+                                            <div class="formitem col-1of2">
+                                                <label class="label" for="country">Country</label>
+                                                <select name="country" id="country" x-autocompletetype="country-name">
+                                                    <option selected="selected">please choose</option>
+                                                    <option>U.S.A.</option>
+                                                    <option>France</option>
+                                                    <option>Italy</option>
+                                                    <option>Spain</option>
+                                                    <option>Germany</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="formrow">
+                                            <div class="formitem">
+                                                <div class="ticks">
+                                                    <label>
+                                                        <input type="checkbox" name="terms" class="error" required="required"/>
+                                                        <span>Yes, of course I agree to your monstrous <a href="javascript://">terms and conditions</a> and I allow everything.</span>
+                                                    </label>
+                                                </div>
+                                                <label for="terms" class="error">Please agree to our terms of service to proceed.</label>
+                                            </div>
+                                        </div>
+                                        <div class="formrow">
+                                            <div class="formitem">
+                                                <input type="reset" value="Reset" class="btn btn-decline"/>
+                                                <button class="btn btn-primary">Submit</button>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                        <div id="form-html" class="tab-content">
+<pre><code class="html">&lt;form&gt;
+    &lt;fieldset class="wideform"&gt;
+        &lt;div class="formrow"&gt;
+            &lt;label class="label req" for="firstname"&gt;First/last name&lt;/label&gt;
+            &lt;div class="formitem col-1of2"&gt;
+                &lt;label class="label req" for="firstname"&gt;First name&lt;/label&gt;
+                &lt;input type="text" name="firstname" id="firstname" placeholder="Placeholder" required="required" x-autocompletetype="given-name"/&gt;
+            &lt;/div&gt;
+            &lt;div class="formitem col-1of2"&gt;
+                &lt;label class="label req" for="firstname"&gt;Last name&lt;/label&gt;
+                &lt;input type="text" name="lastname" id="lastname" placeholder="... with polyfill" required="required" x-autocompletetype="family-name"/&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="formrow"&gt;
+            &lt;div class="formitem col-1of3"&gt;
+                &lt;label class="label" for="zip"&gt;Zip&lt;/label&gt;
+                &lt;input type="text" name="zip" id="zip" pattern="[0-9]{5}" x-autocompletetype="postal-code"/&gt;
+            &lt;/div&gt;
+            &lt;div class="formitem col-2of3"&gt;
+                &lt;label class="label" for="zip"&gt;City&lt;/label&gt;
+                &lt;input type="text" name="city" id="city" x-autocompletetype="city"/&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/fieldset&gt;
+&lt;/form&gt;
+</code></pre>
+
+                        </div>
+                        <div id="form-files" class="tab-content">
+                            <ul class="files">
+                                <li>sass/config/_vars.scss</li>
+                                <li>sass/config/_components.scss</li>
+                                <li>sass/tools/_responsive.scss</li>
+                                <li>sass/tools/_easygrid.scss</li>
+                                <li>sass/components/_forms.scss</li>
+                                <li>bower_components/jquery-validation/dist/jquery.validate.min.js</li>
+                                <li>bower_components/jquery-validation/src/localization/messages_de.js</li>
+                                <li>js/forms.js</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3>Custom radiobuttons and checkboxes</h3>
+                    <p>Use <code class="html">&lt;div class="custom-ticks"&gt;</code> or <code class="html">&lt;div class="ticks custom-ticks"&gt;</code> as a wrapper around a group of checkboxes and radiobuttons to activate custom styling. Be sure to place your labels <b>after</b> the input-elements, not around them.</p>
+                    <div class="example-tabs tabs-container">
+                        <ul class="tabs">
+                            <li><a class="example" href="#customcheck-example">Example</a></li>
+                            <li><a class="html" href="#customcheck-html">HTML</a></li>
+                            <li><a class="files" href="#customcheck-files">Files</a></li>
+                        </ul>
+                        <div id="customcheck-example" class="tab-content">
+                            <div class="example">
+                                <form action="#" method="get">
+                                    <div class="formrow">
+                                        <div class="formitem">
+                                            <div class="ticks custom-ticks">
+                                                <input type="radio" name="salutation" id="salutation-mrs" value="mrs">
+                                                <label for="salutation-mrs">Mrs.</label>
+                                                <input type="radio" name="salutation" id="salutation-mr" value="mr">
+                                                <label for="salutation-mr">Mr.</label>
+                                                <input type="radio" name="salutation" id="salutation-miss" value="miss">
+                                                <label for="salutation-miss">Miss</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="formrow">
+                                        <div class="formitem">
+                                            <div class="ticks custom-ticks">
+                                                <input type="checkbox" name="newsletter" id="custom-newsletter">
+                                                <label for="custom-newsletter">Subcribe to newsletter</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div id="customcheck-html" class="tab-content">
+<pre><code class="html">&lt;form action="#" method="get"&gt;
+    &lt;div class="formrow"&gt;
+        &lt;div class="formitem"&gt;
+            &lt;div class="ticks custom-ticks"&gt;
+                &lt;input type="radio" name="salutation" id="salutation-mrs" value="mrs"&gt;
+                &lt;label for="salutation-mrs"&gt;Mrs.&lt;/label&gt;
+                &lt;input type="radio" name="salutation" id="salutation-mr" value="mr"&gt;
+                &lt;label for="salutation-mr"&gt;Mr.&lt;/label&gt;
+                &lt;input type="radio" name="salutation" id="salutation-miss" value="miss"&gt;
+                &lt;label for="salutation-miss"&gt;Miss&lt;/label&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="formrow"&gt;
+        &lt;div class="formitem"&gt;
+            &lt;div class="ticks custom-ticks"&gt;
+                &lt;input type="checkbox" name="newsletter" id="custom-newsletter"&gt;
+                &lt;label for="custom-newsletter"&gt;Subcribe to newsletter&lt;/label&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+</code></pre>
+                        </div>
+                        <div id="customcheck-files" class="tab-content">
+                            <ul class="files"><li>sass/config/_vars.scss</li>
+                            <li>sass/config/_components.scss</li>
+                            <li>sass/components/_forms.scss</li>
+                            <li>sass/components/_custom-radiobuttons-checkboxes.scss</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <hr>
+                <section>
+                    <a id="buttons"></a>
+                    <h2>Buttons</h2>
+                    <h3>Basic Button</h3>
+                    <p>Create a button by using the class <code class="css">.btn</code>.</p>
+                    <div class="example-tabs tabs-container">
+                        <ul class="tabs">
+                            <li><a class="example" href="#btn-example">Example</a></li>
+                            <li><a class="html" href="#btn-html">HTML</a></li>
+                            <li><a class="files" href="#btn-files">Files</a></li>
+                        </ul>
+                        <div id="btn-example" class="tab-content">
+                            <div class="example">
+                                <a class="btn" href="javascript:void(0);">I am a button</a>
+                            </div>
+                        </div>
+                        <div id="btn-html" class="tab-content">
+<pre><code class="html">&lt;a class="btn" href="..."&gt;I am a button&lt;/a&gt;</code></pre>
+                        </div>
+                        <div id="btn-files" class="tab-content">
+                            <ul class="files"><li>sass/config/_vars.scss</li>
+                            <li>sass/config/_components.scss</li>
+                            <li>sass/components/_buttons.scss</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h3>Colors</h3>
+                    <p>Use <code class="css">.btn-primary</code>, <code class="css">.btn-disabled</code>, <code class="css">.btn-decline</code> or <code class="css">.btn-accept</code> to give your button its purpose.</p>
+                    <div class="example-tabs tabs-container">
+                        <ul class="tabs">
+                            <li><a class="example" href="#btn-c-example">Example</a></li>
+                            <li><a class="html" href="#btn-c-html">HTML</a></li>
+                            <li><a class="files" href="#btn-c-files">Files</a></li>
+                        </ul>
+                        <div id="btn-c-example" class="tab-content">
+                            <div class="example">
+                                <a class="btn" href="javascript:void(0);">Normal button</a>
+                                <a class="btn btn-primary" href="javascript:void(0);">Primary button</a>
+                                <a class="btn btn-disabled" href="javascript:void(0);">Disabled button</a>
+                                <a class="btn btn-decline" href="javascript:void(0);">Decline button</a>
+                                <a class="btn btn-accept" href="javascript:void(0);">Accept button</a>
+                            </div>
+                        </div>
+                        <div id="btn-c-html" class="tab-content">
+<pre>
+<code class="html">&lt;a class="btn" href="..."&gt;Normal button&lt;/a&gt;
+&lt;a class="btn btn-primary" href="..."&gt;Primary button&lt;/a&gt;
+&lt;a class="btn btn-disabled" href="..."&gt;Disabled button&lt;/a&gt;
+&lt;a class="btn btn-decline" href="..."&gt;Decline button&lt;/a&gt;
+&lt;a class="btn btn-accept" href="..."&gt;Accept button&lt;/a&gt;
+</code></pre>
+                        </div>
+                        <div id="btn-c-files" class="tab-content">
+                            <ul class="files"><li>sass/config/_vars.scss</li>
+                            <li>sass/config/_components.scss</li>
+                            <li>sass/components/_buttons.scss</li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    <h3>Size Variations</h3>
+                    <p>You may alter its size with <code class="css">.btn-sm</code> or <code class="css">.btn-big</code>.</p>
+                    <div class="example-tabs tabs-container">
+                        <ul class="tabs">
+                            <li><a class="example" href="#btn-s-example">Example</a></li>
+                            <li><a class="html" href="#btn-s-html">HTML</a></li>
+                            <li><a class="files" href="#btn-s-files">Files</a></li>
+
+                        </ul>
+                        <div id="btn-s-example" class="tab-content">
+                            <div class="example">
+                                <a class="btn btn-sm" href="javascript:void(0);">Small button</a>
+                                <a class="btn btn-big" href="javascript:void(0);">Big button</a>
+                            </div>
+                        </div>
+                        <div id="btn-s-html" class="tab-content">
+<pre>
+<code class="html">&lt;a class="btn btn-sm" href="..."&gt;Small button&lt;/a&gt;
+&lt;a class="btn btn-big"&gt;Big button href="..."&lt;/a&gt;
+</code></pre>
+                        </div>
+                        <div id="btn-s-files" class="tab-content">
+                            <ul class="files"><li>sass/config/_vars.scss</li>
+                            <li>sass/config/_components.scss</li>
+                            <li>sass/components/_buttons.scss</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h3>Round Buttons</h3>
+                    <p>Add shapes with <code class="css">.btn-prev</code>, <code class="css">.btn-next</code> or <code class="css">.btn-round</code>.</p>
+                    <div class="example-tabs tabs-container">
+                        <ul class="tabs">
+                            <li><a class="example" href="#btn-r-example">Example</a></li>
+                            <li><a class="html" href="#btn-r-html">HTML</a></li>
+                            <li><a class="files" href="#btn-r-files">Files</a></li>
+
+                        </ul>
+                        <div id="btn-r-example" class="tab-content">
+                            <div class="example">
+                                <a class="btn btn-prev" href="javascript:void(0);"><i class="fa fa-angle-left"></i> Prev button</a>
+                                <a class="btn btn-next" href="javascript:void(0);">Next button <i class="fa fa-angle-right"></i></a>
+                                <a class="btn btn-round" href="javascript:void(0);">Round button</a>
+                            </div>
+                        </div>
+                        <div id="btn-r-html" class="tab-content">
+<pre>
+<code class="html">&lt;a class="btn btn-prev" href="..."&gt;&lt;i class="fa fa-angle-left"&gt;&lt;/i&gt; Prev button&lt;/a&gt;
+&lt;a class="btn btn-next" href="..."&gt;Next button &lt;i class="fa fa-angle-left"&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;a class="btn btn-round" href="..."&gt;Round button &lt;/a&gt;
+</code></pre>
+                        </div>
+                        <div id="btn-r-files" class="tab-content">
+                            <ul class="files"><li>sass/config/_vars.scss</li>
+                            <li>sass/config/_components.scss</li>
+                            <li>sass/components/_buttons.scss</li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <h3>Full Button</h3>
+                    <p>A <code class="css">.btn-full</code> spans the available horizontal space.</p>
+                    <div class="example-tabs tabs-container">
+                        <ul class="tabs">
+                            <li><a class="example" href="#btn-f-example">Example</a></li>
+                            <li><a class="html" href="#btn-f-html">HTML</a></li>
+                            <li><a class="files" href="#btn-f-files">Files</a></li>
+
+                        </ul>
+                        <div id="btn-f-example" class="tab-content">
+                            <div class="example">
+                                <a class="btn btn-full" href="javascript:void(0);">Full button</a>
+                            </div>
+                        </div>
+                        <div id="btn-f-html" class="tab-content">
+<pre>
+<code class="html">&lt;a class="btn btn-full" href="..."&gt;Full button&lt;/a&gt;
+</code></pre>
+                        </div>
+                        <div id="btn-f-files" class="tab-content">
+                            <ul class="files"><li>sass/config/_vars.scss</li>
+                            <li>sass/config/_components.scss</li>
+                            <li>sass/components/_buttons.scss</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <h3>Button Group</h3>
+                    <p>Setup a button group by wrapping your buttons with <code class="css">.btn-group</code>.</p>
+                    <div class="example-tabs tabs-container">
+                        <ul class="tabs">
+                            <li><a class="example" href="#btn-g-example">Example</a></li>
+                            <li><a class="html" href="#btn-g-html">HTML</a></li>
+                            <li><a class="files" href="#btn-g-files">Files</a></li>
+
+                        </ul>
+                        <div id="btn-g-example" class="tab-content">
+                            <div class="example">
+                                <div class="btn-group">
+                                    <a class="btn" href="javascript:void(0);">Grouped</a>
+                                    <a class="btn" href="javascript:void(0);">buttons</a>
+                                    <a class="btn" href="javascript:void(0);">Grouped</a>
+                                    <a class="btn" href="javascript:void(0);">buttons</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="btn-g-html" class="tab-content">
+<pre>
+<code class="html">&lt;div class="btn-group"&gt;
+    &lt;a class="btn" href="..."&gt;Grouped&lt;/a&gt;
+    &lt;a class="btn" href="..."&gt;buttons&lt;/a&gt;
+    ...
+&lt;/div&gt;
+</code></pre>
+                        </div>
+                        <div id="btn-g-files" class="tab-content">
+                            <ul class="files"><li>sass/config/_vars.scss</li>
+                            <li>sass/config/_components.scss</li>
+                           <li>sass/components/_buttons.scss</li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <h3>Combinations</h3>
+                    <p>You may combine every colour with every size and every shape.</p>
+                    <div class="example-tabs tabs-container">
+                        <ul class="tabs">
+                            <li><a class="example" href="#btn-x-example">Example</a></li>
+                            <li><a class="html" href="#btn-x-html">HTML</a></li>
+                            <li><a class="files" href="#btn-x-files">Files</a></li>
+
+                        </ul>
+                        <div id="btn-x-example" class="tab-content">
+                            <div class="example">
+                                <a class="btn btn-sm btn-round" href="javascript:void(0);">Small and round button</a>
+                                <br>
+                                <div class="btn-group">
+                                    <a class="btn btn-decline btn-prev" href="javascript:void(0);"><i class="fa fa-times"></i> Abort</a>
+                                    <a class="btn btn-accept btn-next" href="javascript:void(0);"><i class="fa fa-check"></i> Okay</a>
+                                </div>
+                                <a class="btn btn-big btn-primary btn-full" href="javascript:void(0);">Big, primary and full button</a>
+                            </div>
+                        </div>
+                        <div id="btn-x-html" class="tab-content">
+<pre>
+<code class="html">&lt;a class="btn btn-sm btn-round" href="..."&gt;Small and round button&lt;/a&gt;
+&lt;br&gt;
+&lt;div class="btn-group"&gt;
+    &lt;a class="btn btn-decline btn-prev" href="..."&gt;&lt;i class="fa fa-times"&gt;&lt;/i&gt; Abort&lt;/a&gt;
+    &lt;a class="btn btn-accept btn-next" href="..."&gt;&lt;i class="fa fa-check"&gt;&lt;/i&gt; Okay&lt;/a&gt;
+&lt;/div&gt;
+&lt;a class="btn btn-big btn-primary btn-full" href="..."&gt;Big, primary and full button&lt;/a&gt;
+</code></pre>
+                        </div>
+                        <div id="btn-x-files" class="tab-content">
+                            <ul class="files"><li>sass/config/_vars.scss</li>
+                            <li>sass/config/_components.scss</li>
+                            <li>sass/components/_buttons.scss</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </section>
+                <hr>
+                <section>
+                    <a id="tabs"></a>
+                    <h2>Tabs</h2>
+                    <p>Create a tabbed section by adding a <code class="css">.tabs-container</code>. Place your tabs into <code class="css">ul.tabs</code> and add the correspoding content panes having <code class="css">.tab-content</code> and an <code class="html">id</code> corresponding to the <code class="html">href</code>-Attribute of the tab-links.</p>
+                    <div class="example-tabs tabs-container">
+                        <ul class="tabs">
+                            <li><a class="example" href="#tabs-example">Example</a></li>
+                            <li><a class="html" href="#tabs-html">HTML</a></li>
+                            <li><a class="files" href="#tabs-files">Files</a></li>
+                        </ul>
+                        <div id="tabs-example" class="tab-content">
+                            <div class="example">
+                                <div class="tabs-container">
+                                    <ul class="tabs">
+                                        <li><a href="#tab1">Tab 1</a></li>
+                                        <li><a href="#tab2">Tab 2</a></li>
+                                        <li><a href="#tab3">Tab 3</a></li>
+                                    </ul>
+                                    <div id="tab1" class="tab-content">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam malesuada fermentum mi. Integer ut massa dignissim, fermentum odio a, scelerisque sem. Cras ut mi sed mi iaculis tempor ac ut est. Nulla iaculis eu lectus in luctus. Ut pretium felis sit amet quam rutrum malesuada. Phasellus gravida quam nunc, nec faucibus turpis feugiat et. Sed nec sem a nunc pellentesque volutpat. Duis pharetra varius blandit. Nulla posuere lorem dui, vel suscipit mauris tincidunt eget. Proin sed finibus justo. Integer vel aliquet nulla, a fermentum ex.
+                                        </p>
+                                    </div>
+                                    <div id="tab2" class="tab-content">
+                                        <p>
+                                            Vivamus sed aliquet nisl, sit amet mollis leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam tempor orci id lectus condimentum feugiat. In eleifend urna elit, et semper odio dapibus eu. Fusce imperdiet faucibus lectus. Donec lobortis tempus arcu, in lacinia purus. Curabitur placerat elementum porta.
+                                        </p>
+                                    </div>
+                                    <div id="tab3" class="tab-content">
+                                        <p>
+                                            Phasellus rhoncus ipsum in nulla mattis hendrerit. Vestibulum magna nunc, luctus at luctus a, sodales eget ligula. Vivamus eget massa ac dolor vehicula gravida eu ac quam. Ut eu ante bibendum, facilisis lectus eu, imperdiet felis. In nec nibh et nunc tincidunt malesuada. Duis a porta ligula, sit amet scelerisque purus. Etiam scelerisque sed lectus nec dictum. Duis at justo nunc. Ut justo est, eleifend eu libero vitae, gravida congue lacus. Cras nec neque id nisl dapibus tincidunt. Etiam id vehicula nisi, ut rutrum mauris. In sollicitudin non ex sit amet facilisis. Cras mauris arcu, sagittis vel bibendum eu, ornare sit amet felis. Phasellus accumsan enim ligula, vitae suscipit mi blandit sed. Ut lobortis risus non aliquet venenatis. Etiam eros mauris, eleifend non leo nec, dictum mollis magna.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tabs-html" class="tab-content">
+<pre>
+<code class="html">&lt;div class="tabs-container"&gt;
+    &lt;ul class="tabs"&gt;
+        &lt;li&gt;&lt;a href="#tab1"&gt;Tab 1&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#tab2"&gt;Tab 2&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#tab3"&gt;Tab 3&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div id="tab1" class="tab-content"&gt;...&lt;/div&gt;
+    &lt;div id="tab2" class="tab-content"&gt;...&lt;/div&gt;
+    &lt;div id="tab3" class="tab-content"&gt;...&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                        </div>
+                        <div id="tabs-files" class="tab-content">
+                            <ul class="files"><li>sass/config/_vars.scss</li>
+                            <li>sass/config/_components.scss</li>
+                            <li>sass/components/_tabs.scss</li>
+                            <li>js/tabs.js</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </section>
+                <hr>
+                <section>
+                    <a id="collapse"></a>
+                    <h2>Collapse</h2>
+                    <p>Place at least one combination of <code class="css">.collapse-toggle</code> and <code class="css">.collapse-content</code> inside a <code class="css">.collapse-container</code> to make one or more collapsables. Use padding instead of margin for <code class="css">.collapse-toggle</code> and <code class="css">.collapse-content</code> to ensure a soft animation.</p>
+                    <h3>Initially closed collapsable</h3>
+
+                    <div class="example-tabs tabs-container">
+                        <ul class="tabs">
+                            <li><a class="example" href="#collapse-c-example">Example</a></li>
+                            <li><a class="html" href="#collapse-c-html">HTML</a></li>
+                            <li><a class="files" href="#collapse-c-files">Files</a></li>
+                        </ul>
+                        <div id="collapse-c-example" class="tab-content">
+                            <div class="example">
+
+                                <div class="collapse-container">
+                                    <h4 class="collapse-toggle">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                                    </h4>
+                                    <p class="collapse-content">
+                                        Phasellus finibus maximus libero, eget tincidunt nisl dapibus vitae. Vestibulum sem purus, sollicitudin ut consectetur eget, dignissim eget mi. Curabitur scelerisque dui non tellus auctor, sed euismod sapien molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Etiam nec ornare sapien. Etiam eu dolor aliquam, sollicitudin nibh quis, tempor nisl. Quisque eget turpis suscipit, imperdiet nisi eget, elementum lorem. Aliquam ultrices, metus in egestas elementum, purus sapien elementum tortor, vitae tempus nulla quam in purus.
+                                    </p>
+                                    <h4 class="collapse-toggle">
+                                        Ut a molestie tellus
+                                    </h4>
+                                    <p class="collapse-content">
+                                        Phasellus sit amet accumsan massa. Aliquam erat volutpat. Ut iaculis posuere mattis. Sed porttitor pellentesque sapien, eu bibendum arcu sagittis nec. Donec auctor justo ut rhoncus suscipit. Ut laoreet finibus felis non molestie. Donec dapibus orci in erat interdum auctor. Maecenas vulputate nisl nec blandit accumsan. Praesent vitae ultrices tellus. Nullam ultricies neque et urna placerat rhoncus.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="collapse-c-html" class="tab-content">
+<pre>
+<code class="html">&lt;div class="collapse-container"&gt;
+    &lt;h4 class="collapse-toggle"&gt;
+        ...
+    &lt;/h4&gt;
+    &lt;p class="collapse-content"&gt;
+        ...
+    &lt;/p&gt;
+    ...
+&lt;/div&gt;
+</code></pre>
+                        </div>
+                        <div id="collapse-c-files" class="tab-content">
+                            <ul class="files">
+                                <li>sass/config/_vars.scss</li>
+                                <li>sass/components/_collapse.scss</li>
+                                <li>js/collapse.js</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3>Initially open collapsable</h3>
+                    <p>Add class <code class="css">.collapse-open</code> to a <code class="css">.collapse-toggle</code> to have its <code class="css">.collapse-content</code> initially opened at page load.</p>
+
+                    <div class="example-tabs tabs-container">
+                        <ul class="tabs">
+                            <li><a class="example" href="#collapse-o-example">Example</a></li>
+                            <li><a class="html" href="#collapse-o-html">HTML</a></li>
+                            <li><a class="files" href="#collapse-o-files">Files</a></li>
+                        </ul>
+                        <div id="collapse-o-example" class="tab-content">
+                            <div class="example">
+
+                                <div class="collapse-container">
+                                    <h4 class="collapse-toggle collapse-open">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    </h4>
+                                    <p class="collapse-content">
+                                        Phasellus finibus maximus libero, eget tincidunt nisl dapibus vitae. Vestibulum sem purus, sollicitudin ut consectetur eget, dignissim eget mi. Curabitur scelerisque dui non tellus auctor, sed euismod sapien molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Etiam nec ornare sapien. Etiam eu dolor aliquam, sollicitudin nibh quis, tempor nisl. Quisque eget turpis suscipit, imperdiet nisi eget, elementum lorem. Aliquam ultrices, metus in egestas elementum, purus sapien elementum tortor, vitae tempus nulla quam in purus.
+                                    </p>
+                                    <h4 class="collapse-toggle collapse-open">
+                                        Ut a molestie tellus
+                                    </h4>
+                                    <p class="collapse-content">
+                                        Phasellus sit amet accumsan massa. Aliquam erat volutpat. Ut iaculis posuere mattis. Sed porttitor pellentesque sapien, eu bibendum arcu sagittis nec. Donec auctor justo ut rhoncus suscipit. Ut laoreet finibus felis non molestie. Donec dapibus orci in erat interdum auctor. Maecenas vulputate nisl nec blandit accumsan. Praesent vitae ultrices tellus. Nullam ultricies neque et urna placerat rhoncus.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="collapse-o-html" class="tab-content">
+<pre>
+<code class="html">&lt;div class="collapse-container"&gt;
+    &lt;h4 class="collapse-toggle collapse-open"&gt;
+        ...
+    &lt;/h4&gt;
+    &lt;p class="collapse-content"&gt;
+        ...
+    &lt;/p&gt;
+    ...
+&lt;/div&gt;
+</code></pre>
+                        </div>
+                        <div id="collapse-o-files" class="tab-content">
+                            <ul class="files">
+                                <li>sass/config/_vars.scss</li>
+                                <li>sass/components/_collapse.scss</li>
+                                <li>js/collapse.js</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h3>Accordion</h3>
+                    <p>Add class <code class="css">.collapse-accordion</code> to the <code class="css">.collapse-container</code> to create an accordion.</p>
+
+                    <div class="example-tabs tabs-container">
+                         <ul class="tabs">
+                             <li><a class="example" href="#collapse-a-example">Example</a></li>
+                             <li><a class="html" href="#collapse-a-html">HTML</a></li>
+                             <li><a class="files" href="#collapse-a-files">Files</a></li>
+                         </ul>
+                         <div id="collapse-a-example" class="tab-content">
+                             <div class="example">
+
+                                <div class="collapse-container collapse-accordion">
+                                    <h4 class="collapse-toggle collapse-open">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                                    </h4>
+                                    <p class="collapse-content">
+                                        Phasellus finibus maximus libero, eget tincidunt nisl dapibus vitae. Vestibulum sem purus, sollicitudin ut consectetur eget, dignissim eget mi. Curabitur scelerisque dui non tellus auctor, sed euismod sapien molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Etiam nec ornare sapien. Etiam eu dolor aliquam, sollicitudin nibh quis, tempor nisl. Quisque eget turpis suscipit, imperdiet nisi eget, elementum lorem. Aliquam ultrices, metus in egestas elementum, purus sapien elementum tortor, vitae tempus nulla quam in purus.
+                                    </p>
+                                    <h4 class="collapse-toggle">
+                                        Ut a molestie tellus
+                                    </h4>
+                                    <p class="collapse-content">
+                                        Phasellus sit amet accumsan massa. Aliquam erat volutpat. Ut iaculis posuere mattis. Sed porttitor pellentesque sapien, eu bibendum arcu sagittis nec. Donec auctor justo ut rhoncus suscipit. Ut laoreet finibus felis non molestie. Donec dapibus orci in erat interdum auctor. Maecenas vulputate nisl nec blandit accumsan. Praesent vitae ultrices tellus. Nullam ultricies neque et urna placerat rhoncus.
+                                    </p>
+                                    <h4 class="collapse-toggle">
+                                        Nam ut gravida purus, vitae ullamcorper leo
+                                    </h4>
+                                    <p class="collapse-content">
+                                        Proin urna risus, rutrum vitae sem condimentum, elementum gravida nisi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus elementum euismod sodales. Sed sodales aliquam velit sed cursus. Praesent venenatis faucibus turpis vitae eleifend. Pellentesque lacinia in lectus id pulvinar. Vestibulum euismod nulla quis nulla semper, at pellentesque augue congue. Vestibulum sed sodales odio. Vivamus vitae feugiat nibh. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam eu est vitae nulla aliquam varius. Mauris lectus dui, fermentum sit amet mi sed, volutpat commodo nisi. Vivamus aliquam semper nibh, faucibus tempus lectus egestas in.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="collapse-a-html" class="tab-content">
+<pre>
+<code class="html">&lt;div class="collapse-container collapse-accordion"&gt;
+    &lt;h4 class="collapse-toggle"&gt;
+        ...
+    &lt;/h4&gt;
+    &lt;p class="collapse-content"&gt;
+        ...
+    &lt;/p&gt;
+    &lt;h4 class="collapse-toggle"&gt;
+        ...
+    &lt;/h4&gt;
+    &lt;p class="collapse-content"&gt;
+        ...
+    &lt;/p&gt;
+    ...
+&lt;/div&gt;
+</code></pre>
+                        </div>
+                        <div id="collapse-a-files" class="tab-content">
+                            <ul class="files">
+                                <li>sass/config/_vars.scss</li>
+                                <li>sass/components/_collapse.scss</li>
+                                <li>js/collapse.js</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </section>
+                <hr>
+                <section>
+                    <a id="tables"></a>
+                    <h2>Tables</h2>
+                    <p>Based on <a href="http://getbootstrap.com/css/#tables">Bootstrap</a>.</p>
+                    <div class="reveal-small">
+                        <h3>Regular Table</h3>
+                        <p>Create a <code class="html">&lt;table&gt;</code>. Use class <code class="css">.table</code> to apply some nice styles.</p>
+                        <div class="example-tabs tabs-container">
+                            <ul class="tabs">
+                                <li><a class="example" href="#tables-n-example">Example</a></li>
+                                <li><a class="html" href="#tables-n-html">HTML</a></li>
+                                <li><a class="files" href="#tables-n-files">Files</a></li>
+                            </ul>
+                            <div id="tables-n-example" class="tab-content">
+                                <div class="example">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Lorem ipsum</th>
+                                                <th>dolor sit</th>
+                                                <th>amet consectetur</th>
+                                                <th>adipiscing elit</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th>1st</th>
+                                                <td>Vestibulum in</td>
+                                                <td>posuere orci</td>
+                                                <td>Nam euismod</td>
+                                            </tr>
+                                            <tr>
+                                                <th>2nd</th>
+                                                <td>Vestibulum in</td>
+                                                <td>posuere orci</td>
+                                                <td>Nam euismod</td>
+                                            </tr>
+                                            <tr>
+                                                <th>3rd</th>
+                                                <td>Vestibulum in</td>
+                                                <td>posuere orci</td>
+                                                <td>Nam euismod</td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td>tfoot</td>
+                                                <td>tfoot</td>
+                                                <td>tfoot</td>
+                                                <td>tfoot</td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                            <div id="tables-n-html" class="tab-content">
+<pre>
+<code class="html">&lt;table class="table"&gt;
+    ...
+&lt;/table&gt;
+</code></pre>
+                            </div>
+                            <div id="tables-n-files" class="tab-content">
+                                <ul class="files"><li>sass/config/_vars.scss</li>
+                                <li>sass/config/_components.scss</li>
+                                <li>sass/components/_tables.scss</li>
+                                </ul>
+                            </div>
+                        </div>
+
+
+                        <h3>Table variations</h3>
+                        <p>Apply some more borders by adding the class <code class="css">.table-bordered</code>. Add zebra-striping to any row within tbody with the class <code class="css">.table-striped</code>. Or enable a hover state on table rows with with <code class="css">.table-hover</code>.</p>
+                        <div class="example-tabs tabs-container">
+                            <ul class="tabs">
+                                <li><a class="example" href="#tables-v-example">Example</a></li>
+                                <li><a class="html" href="#tables-v-html">HTML</a></li>
+                                <li><a class="files" href="#tables-v-files">Files</a></li>
+                            </ul>
+                            <div id="tables-v-example" class="tab-content">
+                                <div class="example">
+                                    <table class="table table-bordered table-striped table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Lorem ipsum</th>
+                                                <th>dolor sit</th>
+                                                <th>amet consectetur</th>
+                                                <th>adipiscing elit</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th>1st</th>
+                                                <td>Vestibulum in</td>
+                                                <td>posuere orci</td>
+                                                <td>Nam euismod</td>
+                                            </tr>
+                                            <tr>
+                                                <th>2nd</th>
+                                                <td>Vestibulum in</td>
+                                                <td>posuere orci</td>
+                                                <td>Nam euismod</td>
+                                            </tr>
+                                            <tr>
+                                                <th>3rd</th>
+                                                <td>Vestibulum in</td>
+                                                <td>posuere orci</td>
+                                                <td>Nam euismod</td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td>tfoot</td>
+                                                <td>tfoot</td>
+                                                <td>tfoot</td>
+                                                <td>tfoot</td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                            <div id="tables-v-html" class="tab-content">
+<pre>
+<code class="html">&lt;table class="table table-bordered table-striped table-hover"&gt;
+    ...
+&lt;/table&gt;
+</code></pre>
+                            </div>
+                            <div id="tables-v-files" class="tab-content">
+                                <ul class="files"><li>sass/config/_vars.scss</li>
+                                <li>sass/config/_components.scss</li>
+                                <li>sass/components/_tables.scss</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <h3>Contextual Classes</h3>
+                        <p>Use contextual classes to color table rows or individual cells.</p>
+                        <div class="example-tabs tabs-container">
+                            <ul class="tabs">
+                                <li><a class="example" href="#tables-con-example">Example</a></li>
+                                <li><a class="html" href="#tables-con-html">HTML</a></li>
+                                <li><a class="files" href="#tables-con-files">Files</a></li>
+                            </ul>
+                            <div id="tables-con-example" class="tab-content">
+                                <div class="example">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Lorem ipsum ----------</th>
+                                                <th>dolor sit ----------</th>
+                                                <th>amet consectetur ----------</th>
+                                                <th>adipiscing elit ----------</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="active">
+                                                <th>.active</th>
+                                                <td>Vestibulum in</td>
+                                                <td>posuere orci</td>
+                                                <td>Nam euismod</td>
+                                            </tr>
+                                            <tr>
+                                                <th>2nd</th>
+                                                <td>Vestibulum in</td>
+                                                <td>posuere orci</td>
+                                                <td>Nam euismod</td>
+                                            </tr>
+                                            <tr class="info">
+                                                <th>.info</th>
+                                                <td>Vestibulum in</td>
+                                                <td>posuere orci</td>
+                                                <td>Nam euismod</td>
+                                            </tr>
+                                            <tr>
+                                                <th>4th</th>
+                                                <td>Vestibulum in</td>
+                                                <td>posuere orci</td>
+                                                <td>Nam euismod</td>
+                                            </tr>
+                                            <tr class="success">
+                                                <th>.success</th>
+                                                <td>Vestibulum in</td>
+                                                <td>posuere orci</td>
+                                                <td>Nam euismod</td>
+                                            </tr>
+                                            <tr>
+                                                <th>6th</th>
+                                                <td>Vestibulum in</td>
+                                                <td>posuere orci</td>
+                                                <td>Nam euismod</td>
+                                            </tr>
+                                            <tr class="warning">
+                                                <th>.warning</th>
+                                                <td>Vestibulum in</td>
+                                                <td>posuere orci</td>
+                                                <td>Nam euismod</td>
+                                            </tr>
+                                            <tr>
+                                                <th>8th</th>
+                                                <td>Vestibulum in</td>
+                                                <td>posuere orci</td>
+                                                <td>Nam euismod</td>
+                                            </tr>
+                                            <tr class="error">
+                                                <th>.error</th>
+                                                <td>Vestibulum in</td>
+                                                <td>posuere orci</td>
+                                                <td>Nam euismod</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div id="tables-con-html" class="tab-content">
+<pre><code class="html">&lt;!-- On rows --&gt;
+&lt;tr class="active"&gt;...&lt;/tr&gt;
+&lt;tr class="success"&gt;...&lt;/tr&gt;
+&lt;tr class="warning"&gt;...&lt;/tr&gt;
+&lt;tr class="danger"&gt;...&lt;/tr&gt;
+&lt;tr class="info"&gt;...&lt;/tr&gt;
+
+&lt;!-- On cells (`td` or `th`) --&gt;
+&lt;tr&gt;
+  &lt;td class="active"&gt;...&lt;/td&gt;
+  &lt;td class="success"&gt;...&lt;/td&gt;
+  &lt;td class="warning"&gt;...&lt;/td&gt;
+  &lt;td class="danger"&gt;...&lt;/td&gt;
+  &lt;td class="info"&gt;...&lt;/td&gt;
+&lt;/tr&gt;
+</code></pre>
+                            </div>
+                            <div id="tables-con-files" class="tab-content">
+                                <ul class="files"><li>sass/config/_vars.scss</li>
+                                <li>sass/config/_components.scss</li>
+                                <li>sass/components/_tables.scss</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>Responsive Tables (scroll)</h3>
+                    <p>Create responsive tables by wrapping any <code class="css">.table</code> in <code class="css">.table-responsive</code> to make them scroll horizontally on small devices (change the appropriate max-width media query by editing the Sass-variable <code class="css">$table-breakpoint</code>). You will not see any difference in these tables on any larger screen.</p>
+                    <div class="example-tabs tabs-container">
+                        <ul class="tabs">
+                            <li><a class="example" href="#tables-r-example">Example</a></li>
+                            <li><a class="html" href="#tables-r-html">HTML</a></li>
+                            <li><a class="files" href="#tables-r-files">Files</a></li>
+                        </ul>
+                        <div id="tables-r-example" class="tab-content">
+                            <div class="example">
+
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Lorem ipsum ----------</th>
+                                                <th>dolor sit ----------</th>
+                                                <th>amet consectetur ----------</th>
+                                                <th>adipiscing elit ----------</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th>1st</th>
+                                                <td>Vestibulum in</td>
+                                                <td>posuere orci</td>
+                                                <td>Nam euismod</td>
+                                            </tr>
+                                            <tr>
+                                                <th>2nd</th>
+                                                <td>Vestibulum in</td>
+                                                <td>posuere orci</td>
+                                                <td>Nam euismod</td>
+                                            </tr>
+                                            <tr>
+                                                <th>3rd</th>
+                                                <td>Vestibulum in</td>
+                                                <td>posuere orci</td>
+                                                <td>Nam euismod</td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td>tfoot</td>
+                                                <td>tfoot</td>
+                                                <td>tfoot</td>
+                                                <td>tfoot</td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tables-r-html" class="tab-content">
+<pre>
+<code class="html">&lt;div class="table-responsive"&gt;
+    &lt;table class="table"&gt;
+        ...
+    &lt;/table&gt;
+&lt;/div&gt;
+</code></pre>
+                        </div>
+                        <div id="tables-r-files" class="tab-content">
+                            <ul class="files"><li>sass/config/_vars.scss</li>
+                            <li>sass/config/_components.scss</li>
+                            <li>sass/components/_tables.scss</li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                </section>
+                <hr>
+                <section>
+                    <a id="tooltips"></a>
+                    <h2>Tooltips</h2>
+                    <p>
+                        These pure CSS tooltips are easy to implement and still allow you to place the content in the HTML. They require the triangle mixin from <code class="files">sass/tools/_utilities.scss</code>, and grab their text content from an HTML5 data-tooltip property on the element (although this can be changed to any other attribute you prefer, including the standard <code class="html">title</code>).
+                    </p>
+                    <p>Based on <a href="http://hackingui.com/front-end/10-best-scss-utilities/">http://hackingui.com/front-end/10-best-scss-utilities/</a>.</p>
+                    <div class="example-tabs tabs-container">
+                        <ul class="tabs">
+                            <li><a class="example" href="#tooltips-example">Example</a></li>
+                            <li><a class="html" href="#tooltips-html">HTML</a></li>
+                            <li><a class="css" href="#tooltips-scss">SCSS</a></li>
+                            <li><a class="files" href="#tooltips-files">Files</a></li>
+                        </ul>
+                        <div id="tooltips-example" class="tab-content">
+                            <div class="example">
+                                <br>
+                                <p>
+                                    <span class="example-tooltip1" data-tooltip="Me haz tooltip!">Hover over me!</span>
+                                </p>
+                                <p>
+                                    <span class="example-tooltip2" data-tooltip="Me haz another tooltip!">No, hover over me!</span>
+                                </p>
+                                <br>
+                            </div>
+                        </div>
+                        <div id="tooltips-html" class="tab-content">
+<pre>
+<code class="html">&lt;span class="example-tooltip1" data-tooltip="Me haz tooltip!"&gt;Hover over me!&lt;/span&gt;
+&lt;span class="example-tooltip2" data-tooltip="Me haz another tooltip!"&gt;No, hover over me!&lt;/span&gt;
+</code></pre>
+                        </div>
+                        <div id="tooltips-scss" class="tab-content">
+<pre>
+<code class="css">.example-tooltip1 {
+    @include tooltip;
+}
+
+.example-tooltip2 {
+    @include tooltip(attr(data-tooltip), bottom);
+}
+</code></pre>
+                        </div>
+                        <div id="tooltips-files" class="tab-content">
+                            <ul class="files"><li>sass/config/_vars.scss</li>
+                            <li>sass/config/_components.scss</li>
+                            <li>sass/tools/_utilities.scss</li>
+                            <li>sass/components/_tooltips.scss</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <hr>
+                <section>
+                    <a id="alerts"></a>
+                    <h2>Alerts</h2>
+                    <p>
+                        These colourful message-elements will surely grab the attention of your site's visitors. Use the basic class <code class="css">.alert-message</code> in combination with either <code class="css">.alert-info</code>, <code class="css">.alert-danger</code>, <code class="css">.alert-error</code> or <code class="css">.alert-success</code> to create your desired alert-message.
+                    </p>
+                    <div class="example-tabs tabs-container">
+                        <ul class="tabs">
+                            <li><a class="example" href="#alerts-example">Example</a></li>
+                            <li><a class="html" href="#alerts-html">HTML</a></li>
+                            <li><a class="files" href="#alerts-files">Files</a></li>
+                        </ul>
+                        <div id="alerts-example" class="tab-content">
+                            <div class="example">
+                                <div class="alert-message alert-info">
+                                    <p>This is an info-text.</p>
+                                </div>
+                                <div class="alert-message alert-danger">
+                                    <p>Warning!</p>
+                                </div>
+                                <div class="alert-message alert-error">
+                                    <p>Something went wrong...</p>
+                                </div>
+                                <div class="alert-message alert-success">
+                                    <p>Entry successfully created!</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="alerts-html" class="tab-content">
+<pre>
+<code class="html">&lt;div class="alert-message alert-info"&gt;
+    ...
+&lt;/div&gt;
+&lt;div class="alert-message alert-danger"&gt;
+    ...
+&lt;/div&gt;
+&lt;div class="alert-message alert-error"&gt;
+    ...
+&lt;/div&gt;
+&lt;div class="alert-message alert-success"&gt;
+    ...
+&lt;/div&gt;
+</code></pre>
+                        </div>
+                        <div id="alerts-files" class="tab-content">
+                            <ul class="files"><li>sass/config/_vars.scss</li>
+                            <li>sass/config/_components.scss</li>
+                            <li>sass/components/_alerts.scss</li>
+                            <li>js/alerts.js</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </section>
+                <hr>
+                <section>
+                    <a id="dropdowns"></a>
+                    <h2>Dropdowns</h2>
+                    <p>Inspired by <a href="http://getbootstrap.com/">Bootstrap</a>.</p>
+                    <h3>Dropdown</h3>
+                    <p>A dropdown-menu is always wrapped in <code class="css">.dropdown</code>. Inside, a <code class="css">.dropdown-toggle</code> will function as toggle for the menu, followed by a <code class="html">&lt;ul&gt;</code> that contains the menu itself. Dropdowns require the triangle mixin from <code class="files">sass/tools/_utilities.scss</code>.</p>
+                    <div class="example-tabs tabs-container">
+                        <ul class="tabs">
+                            <li><a class="example" href="#dropdown-example">Example</a></li>
+                            <li><a class="html" href="#dropdown-html">HTML</a></li>
+                            <li><a class="files" href="#dropdown-files">Files</a></li>
+                        </ul>
+                        <div id="dropdown-example" class="tab-content">
+                            <div class="example">
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle">
+                                        Open dropdown
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul>
+                                        <li><a href="javascript://">Option 1</a></li>
+                                        <li><a href="javascript://">Option 2</a></li>
+                                        <li><a href="javascript://">Option 3</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="javascript://">Seperated option 4</a></li>
+                                    </ul>
+                                </div>
+
+                                <br><br><br><br><br><br><br><br>
+                            </div>
+                        </div>
+                        <div id="dropdown-html" class="tab-content">
+<pre>
+<code class="html">&lt;div class="dropdown"&gt;
+    &lt;button class="btn dropdown-toggle"&gt;
+        Open dropdown
+        &lt;span class="caret"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="..."&gt;Option 1&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="..."&gt;Option 2&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="..."&gt;Option 3&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="divider"&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="..."&gt;Seperated option 4&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+                        </div>
+                        <div id="dropdown-files" class="tab-content">
+                            <ul class="files"><li>sass/config/_vars.scss</li>
+                            <li>sass/config/_components.scss</li>
+                            <li>sass/tools/_utilities.scss</li>
+                            <li>sass/components/_dropdowns.scss</li>
+                            <li>js/dropdowns.js</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3>Dropup</h3>
+                    <p>Add the class <code class="css">.dropup</code> instead of <code class="css">.dropdown</code>
+                    to the parent to let the menu expand upwards.</p>
+                    <div class="example-tabs tabs-container">
+                        <ul class="tabs">
+                            <li><a class="example" href="#dropup-example">Example</a></li>
+                            <li><a class="html" href="#dropup-html">HTML</a></li>
+                            <li><a class="files" href="#dropup-files">Files</a></li>
+                        </ul>
+                        <div id="dropup-example" class="tab-content">
+                            <div class="example">
+                                <br><br><br><br><br><br><br>
+                                <div class="dropup">
+                                    <button class="btn dropdown-toggle">
+                                        Open dropup
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul>
+                                        <li><a href="javascript://">Option 1</a></li>
+                                        <li><a href="javascript://">Option 2</a></li>
+                                        <li><a href="javascript://">Option 3</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="javascript://">Seperated option 4</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="dropup-html" class="tab-content">
+<pre><code class="html">&lt;div class="dropup"&gt;
+    &lt;button class="btn dropdown-toggle"&gt;
+        Open dropup
+        &lt;span class="caret"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="..."&gt;Option 1&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="..."&gt;Option 2&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="..."&gt;Option 3&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="divider"&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="..."&gt;Seperated option 4&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+                        </div>
+                        <div id="dropup-files" class="tab-content">
+                            <ul class="files"><li>sass/config/_vars.scss</li>
+                            <li>sass/config/_components.scss</li>
+                            <li>sass/tools/_utilities.scss</li>
+                            <li>sass/components/_dropdowns.scss</li>
+                            <li>js/dropdowns.js</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <hr>
+            </div>
+        </div>
+    </main>
+    <footer class="site-footer">
+        <div class="container">
+            <div class="grid">
+                <div class="col-1of2">
+                    <h4>NEBULA</h4>
+                    <p>
+                        A frontend pattern library<br>
+                        by Marc Wittenbrink
+                    </p>
+                    <p>
+                        Stehrweg 7<br>
+                        48153 Münster<br>
+                        Germany
+                    </p>
+                    <p><a href="mailto:wittenbrink@gmail.com">wittenbrink@gmail.com</a></p>
+                    <p>
+                        <a href="https://github.com/ipenstein/nebula">Fork on <i class="fa fa-github"></i> GitHub</a>
+                    </p>
+                </div>
+                <div class="col-1of2">
+                    <h4>Dependencies:</h4>
+                    <ul>
+                        <li>Bower</li>
+                        <li>Sass/Compass</li>
+                        <li>jQuery</li>
+                    </ul>
+                    <h4>Optional:</h4>
+                    <ul>
+                        <li>Susy</li>
+                        <li>Font Awesome</li>
+                        <li>Modernizr</li>
+                        <li>jQuery.Validation</li>
+                        <li>jQuery.ScrollTo</li>
+                        <li>jQuery.SyncHeight</li>
+                        <li>parallax.js</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <span id="responsive-status"></span>
+    <script src="js/bundle.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

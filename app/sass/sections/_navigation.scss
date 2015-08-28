@@ -1,0 +1,148 @@
+/*
+# gui/_navigation.scss
+*/
+
+.main-nav {
+    z-index: z(main-nav);
+    position: absolute;
+    right: 0px;
+    left: 0px;
+    top: 0;
+    li {
+        background: none;
+    }
+    @include bp(big) {
+        right: 13px;
+        left: auto;
+    }
+}
+
+.main-nav .dropdown-toggle {
+    display: block;
+    position: absolute;
+    right: 10px;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    padding: 5px 8px;
+    text-align: center;
+    line-height: 20px;
+    border: 1px solid;
+    background-color: transparent;
+    font-family: "FontAwesome";
+
+    color: $blue1;
+    border-color: rgba($blue1, 0.3);
+
+    &:hover {
+        background-color: $blue1;
+        color: $grey1;
+    }
+
+    border-radius: 5px;
+    @include font-size(24, 20);
+    transition: all 0.3s ease-out;
+
+    @include bp(big) {
+        display: none !important;
+    }
+}
+
+.main-nav .dropdown-toggle.active {
+    color: $red1;
+    border-color: rgba($red1, 0.3);
+
+    &:hover {
+        background-color: $red1;
+        color: $grey1;
+    }
+}
+
+.active > .icon-open {
+    display: none;
+}
+
+.icon-close {
+    display: none;
+    .active > & {
+        display: inline;
+    }
+}
+
+.main-nav ul {
+    @include no-list;
+    @include clearfix;
+    display: none;
+    margin-top: 50px;
+    @include bp(big) {
+        margin-top: 0;
+        background-color: transparent;
+        display: block !important;
+        opacity: 1 !important;
+        @include inline-list;
+    }
+}
+
+
+.main-nav a {
+    font-family: $font-family-2;
+    color: $blue1;
+    text-transform: uppercase;
+    text-decoration: none;
+    float: left;
+    padding: 13px 20px;
+    display: block;
+    border-top: 1px solid rgba($white, 0.1);
+    background-color: rgba($black, 0.85);
+    border-right: 1px solid rgba($white, 0.1);
+    width: 50%;
+
+    &:hover {
+        background-color: $blue1;
+        color: $grey1;
+    }
+
+    @include bp(small) {
+        width: 33.333333%;
+    }
+
+    @include bp(big) {
+        transition: color 0.2s ease-in;
+        border: 0;
+        width: auto;
+        margin: 0 7px;
+        padding: 10px 0;
+        background-color: transparent;
+        @include font-size(15, 20);
+        &:hover {
+            background-color: transparent;
+            color: $blue2;
+        }
+    }
+}
+
+.main-nav li:nth-child(2n) a {
+    border-right: 0;
+
+    @include bp(small) {
+        border-right: 1px solid rgba($white, 0.1);
+    }
+
+    @include bp(big) {
+        border-right: 0;
+    }
+}
+
+.main-nav li:nth-child(3n) a {
+    @include bp(small) {
+        border-right: 0;
+    }
+}
+
+.main-nav li a:focus {
+    color: $blue2;
+}
+
+.main-nav li.active a {
+    color: $white;
+}

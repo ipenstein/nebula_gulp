@@ -1,0 +1,14 @@
+/*
+# sections/_footer.scss
+*/
+
+.site-footer {
+    background-color: $grey1;
+    padding: $base-line-height 0;
+    z-index: z(site-footer);
+    color: $grey4;
+}
+
+.site-footer a:hover {
+    color: $white;
+}

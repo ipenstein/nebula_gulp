@@ -1,0 +1,96 @@
+/*
+# elements/_alerts.scss
+
+Alert messages
+
+    <div class="alert-message info"><a class="close-icon" href="#">×</a>Info alert message</div>
+    <div class="alert-message success"><a class="close-icon" href="#">×</a>success alert message</div>
+    <div class="alert-message error"><a class="close-icon" href="#">×</a>error alert message</div>
+    <div class="alert-message danger"><a class="close-icon" href="#">×</a>danger alert message</div>
+*/
+
+.alert-message {
+    font-family: $alert-font-family;
+    position: relative;
+    padding: $alert-padding;
+    margin: $alert-margin;
+    border: $alert-border;
+    border-left: 40px solid;
+    &:before {
+        position: absolute;
+        width: 40px;
+        left: -40px;
+        font-family: "FontAwesome";
+        font-size: 24px;
+        content: "\f129";
+        text-align: center;
+        color: white;
+    }
+    p {
+        /* quick and dirty hack added by me, you may remove it if not needed */
+        margin: 0; padding: 0;
+    }
+    ul {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    &,
+    & p,
+    & ul {
+        @include font-size($alert-font-size, $alert-line-height);
+    }
+    a {
+        font-weight: bold;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    .close-icon {
+        font: 16px/20px "FontAwesome";
+        float: right;
+        opacity: 0.5;
+        &:hover {
+            text-decoration: none;
+            opacity: 0.75;
+        }
+    }
+}
+
+.alert-message.alert-info {
+    background-color: $alert-info-bg-color;
+    border-color: $alert-info-border-color;
+    &, & p, & a {
+        color: $alert-info-color;
+    }
+}
+.alert-message.alert-danger {
+    background-color: $alert-danger-bg-color;
+    border-color: $alert-danger-border-color;
+    &, & p, & a {
+        color: $alert-danger-color;
+    }
+    &:before {
+        content: "\f071";
+    }
+}
+.alert-message.alert-error {
+    background-color: $alert-error-bg-color;
+    border-color: $alert-error-border-color;
+    &, & p, & a {
+        color: $alert-error-color;
+    }
+    &:before {
+        content: "\f05e";
+    }
+}
+.alert-message.alert-success {
+    background-color: $alert-success-bg-color;
+    border-color: $alert-success-border-color;
+    &, & p, & a {
+        color: $alert-success-color;
+    }
+    &:before {
+        content: "\f00c";
+    }
+}

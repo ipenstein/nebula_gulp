@@ -1,0 +1,153 @@
+/*
+# base/_base.scss
+*/
+
+*,
+*:after,
+*:before {
+    @include box-sizing(border-box);
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+html {
+    font-size: 62.5%; /* Sets up the Base 10 stuff */
+}
+
+body {
+    font-family: $font-family-1;
+    @include font-size($base-font-size, $base-line-height);
+}
+
+html,
+button,
+input,
+select,
+textarea {
+    color: $text-color;
+}
+
+p {
+   padding: 0;
+   margin: 0 0 $base-line-height 0;
+}
+
+h1, h2, h3, h4, .h1, .h2, .h3, .h4 {
+    font-family: $font-family-2;
+    font-weight: normal;
+    padding: 0;
+    margin: ($base-line-height * 2) 0 $base-line-height 0;
+}
+h1, .h1 {
+    @include font-size(48,72);
+    border-bottom: 2px dashed $hr-color;
+    margin-bottom: ($base-line-height * 2);
+}
+h2, .h2 {
+    @include font-size(32,40);
+}
+h3, .h3 {
+    @include font-size(24,32);
+}
+h4, .h4 {
+    @include font-size(16,24);
+    margin: $base-line-height 0;
+}
+
+.lead {
+    @include font-size(20, 32);
+}
+
+a,
+a:focus,
+button,
+input[type="button"],
+input[type="submit"] {
+    outline: 0;
+}
+
+a {
+    color: $link-color;
+    text-decoration: none;
+    &:visited {
+        color: $link-visited-color;
+    }
+    &:hover {
+        color: $link-hover-color;
+    }
+    &:active,
+    &:focus {
+        color: $link-active-color;
+        background-color: $link-active-bg-color;
+    }
+}
+
+em, i {
+    font-style: italic;
+}
+
+b, strong {
+    font-weight: bold;
+}
+
+ul,
+ol {
+    & ul,
+    & ol {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
+
+ol {
+    list-style-type: decimal-leading-zero;
+}
+
+pre,
+code {
+    font-family: $font-family-3;
+}
+
+hr {
+    border: 0;
+    border-bottom: 2px dashed $hr-color;
+    height: 1px;
+    margin-top: $base-line-height * 2 - 1;
+    margin-bottom: $base-line-height * 2 - 1;
+    padding: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.floatleft {
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 5px;
+}
+
+.floatright {
+    float: right;
+    margin-left: 15px;
+    margin-bottom: 5px;
+}
+
+.embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.embed-container iframe,
+.embed-container object,
+.embed-container embed {
+    @include cover;
+}
+
+.print-block,
+.print-inline {
+    display: none;
+}

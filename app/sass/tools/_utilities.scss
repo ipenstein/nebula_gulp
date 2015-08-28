@@ -1,0 +1,362 @@
+/*
+# tools/_utilities.scss
+
+A collection of helper mixins, placeholders and classes.
+*/
+
+/*
+# .clearfix mixin and helper class
+
+On a large-scale project, it’s best to use the @extend directive instead of a
+mixin, as it will output less CSS.
+
+    .main-header {
+        ...
+        @extend .clearfix;
+    }
+*/
+@mixin clearfix {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+.clearfix {
+    @include clearfix;
+}
+
+/*
+# box-sizing mixin with prefixes
+
+@param {String} $value - box-sizing value
+*/
+@mixin box-sizing($value) {
+    -moz-box-sizing: $value;
+         box-sizing: $value;
+}
+
+// Add percentage of white to a color
+@function tint($color, $percent) {
+    @return mix(white, $color, $percent * 1%);
+}
+
+// Add percentage of black to a color
+@function shade($color, $percent) {
+    @return mix(black, $color, $percent * 1%);
+}
+
+/// Returns the opposite direction of each direction in a list
+/// @author Hugo Giraudel
+/// @param {List} $directions - List of initial directions
+/// @return {List} - List of opposite directions
+@function opposite-direction($directions) {
+    $opposite-directions: ();
+    $direction-map: (
+        'top':    'bottom',
+        'right':  'left',
+        'bottom': 'top',
+        'left':   'right',
+        'center': 'center',
+        'ltr':    'rtl',
+        'rtl':    'ltr'
+    );
+
+    @each $direction in $directions {
+        $direction: to-lower-case($direction);
+
+        @if map-has-key($direction-map, $direction) {
+            $opposite-directions: append($opposite-directions, unquote(map-get($direction-map, $direction)));
+        } @else {
+            @warn "No opposite direction can be found for `#{$direction}`. Direction omitted.";
+        }
+    }
+
+    @return $opposite-directions;
+}
+
+/*
+# @function z
+
+Gather all z-indexes into a single map, and stick to them. Then you know how
+many layers the application uses, making it easy to understand what’s going on
+(and, sooner or later, to debug).
+
+@param {String} $z - layer name
+@require $z-layers
+*/
+@function z($key) {
+    @if map-has-key($z-layers, $key) {
+        @return map-get($z-layers, $key);
+    }
+
+    @warn "Unknown `#{$key}` in $z-layers.";
+    @return null;
+}
+
+/*
+# Black and White
+*/
+@function black($opacity: 1) {
+    @return rgba(0, 0, 0, $opacity);
+}
+
+@function white($opacity: 1) {
+    @return rgba(255, 255, 255, $opacity);
+}
+
+/*
+# REM font-size and line-height with px-fallback
+
+http://css-tricks.com/snippets/css/less-mixin-for-rem-font-sizing/
+
+@param {Integer} $size - font-size in px
+@param {Integer} $line - line-height in px
+*/
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+@mixin font-size($size: 16, $line: $size * 1.5) {
+    $size: strip-unit($size);
+    $line: strip-unit($line);
+    font-size: ($size) * 1px;
+    line-height: ($line) * 1px;
+    font-size: ($size / 10) * 1rem;
+    line-height: ($line / 10) * 1rem;
+}
+
+/*
+# @mixin word-wrap
+*/
+@mixin word-wrap {
+    word-break: break-word;
+    -webkit-hyphens: auto;
+       -moz-hyphens: auto;
+            hyphens: auto;
+}
+
+/*
+# @mixin truncate-text
+
+Ensuring that your text element doesn’t overflow its container and breaks
+nicely. It takes one parameter, which is any of the valid text-overflow values.
+
+http://hackingui.com/front-end/10-best-scss-utilities/
+
+@param {String} $overflow - text-overflow value
+*/
+@mixin truncate-text( $overflow: ellipsis ) {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: $overflow; // values are: clip, ellipsis, or a string
+}
+
+/*
+# @mixin cover everything
+*/
+@mixin cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/*
+# @mixin center-vertical
+
+For vertically centering elements with a dynamic size. Works beautifully and
+doesn’t require an extra, non-semantic HTML element.
+
+http://hackingui.com/front-end/10-best-scss-utilities/
+*/
+@mixin center-vertical {
+    &:before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        width: .1px;
+    }
+}
+
+/*
+# @mixin center-both
+
+Horizontally and vertically center elements with a dynamic size. Works only
+in modern Browsers.
+*/
+@mixin center-both {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/*
+# %currency
+
+Display a currency symbol on any type of text element.
+
+    .price {
+        @extend %currency;
+    }
+
+    <body class="EUR">
+        <span class="price">45</span>
+    </body>
+
+http://hackingui.com/front-end/10-best-scss-utilities/
+*/
+%currency {
+    position: relative;
+    &:before {
+        content: '\20AC';
+        position: relative;
+        left: 0;
+    }
+}
+.USD %currency:before { content: '$'; }
+.EUR %currency:before { content: '\20AC'; }
+.ILS %currency:before { content: '\20AA'; }
+.GBP %currency:before { content: '\00A3'; }
+
+/*
+# @mixin triangle
+
+Creates a right angled triangle pointing to a direction specified by $direction.
+
+@param {String} $direction - top, right, bottom or left
+@param {String} $size - px-value
+@param {String} $color - color-value
+*/
+@mixin triangle($direction: top, $size: 10px, $color: #333) {
+    $opposite: opposite-direction($direction);
+    border: $size solid transparent;
+    border-#{$opposite}: $size solid $color;
+    border-#{$direction}: 0;
+    height: 0;
+    width: 0;
+}
+
+@mixin triangle-absolute($direction: top, $size: 10px, $color: #333) {
+    content: '';
+    display: block;
+    position: absolute;
+    @include triangle($direction, $size, $color);
+}
+
+/*
+# @mixin gradient-transition
+
+Creates a :hover-transition-effect with a gradient.
+
+@param {String} $start: color-value
+@param {String} $end: color-value
+@param {String} $duration: transition duration
+*/
+@mixin gradient-transition( $start, $end, $duration ){
+    background-size: 100%;
+    background-image: linear-gradient($start, $end);
+    position: relative;
+    z-index: 100;
+    &:before {
+        background-image: linear-gradient($end, $start);
+        content: '';
+        display: block;
+        height: 100%;
+        position: absolute;
+        top: 0; left: 0;
+        opacity: 0;
+        width: 100%;
+        z-index: -100;
+        transition: opacity $duration;
+    }
+    &:hover {
+        &:before {
+            opacity: 1;
+        }
+    }
+}
+
+/*
+# Webkit Scrollbar Styling
+
+http://codepen.io/HugoGiraudel/details/KFDuB
+*/
+@mixin scrollbar($size, $primary, $secondary: lighten($primary, 25%)) {
+    ::-webkit-scrollbar {
+        width:  $size;
+        height: $size;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: $primary;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: $secondary;
+    }
+
+    // For Internet Explorer
+    body {
+        scrollbar-face-color: $primary;
+        scrollbar-track-color: $secondary;
+    }
+}
+
+@mixin visually-hidden() {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+/*
+# Positioning mixin by Oliver Lohkemper
+*/
+@mixin position($position, $args) {
+
+    position: $position;
+
+    $offsets: top right bottom left;
+    $default: null null null null;
+
+    @if length($args) == 1 {
+        $default: set-nth($default, 1, nth($args, 1));
+        $default: set-nth($default, 2, nth($args, 1));
+        $default: set-nth($default, 3, nth($args, 1));
+        $default: set-nth($default, 4, nth($args, 1));
+    }
+    @if length($args) == 2 {
+        $default: set-nth($default, 1, nth($args, 1));
+        $default: set-nth($default, 2, nth($args, 2));
+        $default: set-nth($default, 3, nth($args, 1));
+        $default: set-nth($default, 4, nth($args, 2));
+    }
+    @if length($args) == 3 {
+        $default: set-nth($default, 1, nth($args, 1) );
+        $default: set-nth($default, 2, nth($args, 2) );
+        $default: set-nth($default, 3, nth($args, 3) );
+        $default: set-nth($default, 4, nth($args, 2) );
+    }
+    @if length($args) == 4 {
+        $default: $args;
+    }
+
+    @each $o in $offsets {
+        $i: index($offsets, $o);
+        #{$o}: nth($default, $i);
+    }
+}
+// shorthand
+@mixin absolute($args) {    @include position(absolute, $args); }
+@mixin fixed($args) {       @include position(fixed, $args); }
+@mixin relative($args) {    @include position(relative, $args); }

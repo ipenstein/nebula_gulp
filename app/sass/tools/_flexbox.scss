@@ -1,0 +1,28 @@
+// ==================================================================
+// Flexbox
+//
+// Implementation based on Chris Coyier's article:
+// Using Flexbox: Mixing Old and New for the Best Browser Support || http://css-tricks.com/using-flexbox/
+// ==================================================================
+
+// Flexbox Context (applied to container element of flex items)
+@mixin flex-display {
+    @include experimental-value(display, box, -moz, -webkit, not -o, -ms, not -khtml, official); // Old
+    @include experimental-value(display, flex, -moz, -webkit, not -o, -ms, not -khtml, official);
+}
+
+// Controlling widths
+@mixin flex($flex, $flex-width: false) {
+    @include experimental(box-flex, $flex, -moz, -webkit, not -o, not -ms, not -khtml, not official);
+    @if $flex-width {
+        width: $flex-width;
+    }
+    @include experimental(flex, $flex, not -moz, -webkit, not -o, -ms, not -khtml, official);
+}
+
+// Re-Ordering
+@mixin flex-order($order) {
+    @include experimental(box-ordinal-group, $order, -moz, -webkit, not -o, not -ms, not -khtml, not official);
+    @include experimental(flex-order, $order, not -moz, not -webkit, not -o, -ms, not -khtml, not official);
+    @include experimental(order, $order, not -moz, -webkit, not -o, not -ms, not -khtml, not official);
+}

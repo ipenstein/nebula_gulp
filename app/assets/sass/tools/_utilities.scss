@@ -176,6 +176,7 @@ http://hackingui.com/front-end/10-best-scss-utilities/
     &:before {
         content: '';
         display: inline-block;
+        vertical-align: middle;
         height: 100%;
         width: .1px;
     }

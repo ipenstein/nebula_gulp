@@ -11,7 +11,8 @@ gulp.task('build', function(callback) {
         'scripts:application',
         'scripts:head',
         'images',
-        'copy:fonts'
+        'copy:fonts',
+        'copy:html'
     ],
     'base64',
     callback);

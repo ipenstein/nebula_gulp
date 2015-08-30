@@ -41,6 +41,7 @@ module.exports = {
             },
             port: 9999,
             files: [
+                development + '/**/*.html',
                 developmentAssets + '/css/*.css',
                 developmentAssets + '/js/*.js',
                 developmentAssets + '/img/**',
@@ -49,7 +50,7 @@ module.exports = {
         }
     },
     delete: {
-        src: [developmentAssets]
+        src: [development]
     },
     sass: {
         src:  srcAssets + '/sass/**/*.{sass,scss}',
@@ -80,8 +81,8 @@ module.exports = {
         dest: developmentAssets + '/js'
     },
     images: {
-      src:  srcAssets + '/img/**/*',
-      dest: developmentAssets + '/img'
+        src:  srcAssets + '/img/**/*',
+        dest: developmentAssets + '/img'
     },
     copyfonts: {
         development: {
@@ -100,6 +101,7 @@ module.exports = {
         }
     },
     watch: {
+        html:    src + '/**/*.{html,markdown,md,yml,json,txt,xml}',
         sass:    srcAssets + '/sass/**/*.{sass,scss}',
         scripts: srcAssets + '/js/**/*.js',
         images:  srcAssets + '/img/**/*',
@@ -143,9 +145,9 @@ module.exports = {
             imgPath: '/assets/img/sprites/icon-sprite.png'
         }
     },
-    html: {
+    copyhtml: {
         development: {
-            src: src + '*.html',
+            src: src + '/*.html',
             dest: development
         }
     }

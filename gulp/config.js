@@ -117,8 +117,8 @@ module.exports = {
         src: developmentAssets + '/css/*.css',
         dest: developmentAssets + '/css',
         options: {
-            baseDir: build,
-            extensions: ['png'],
+            baseDir: developmentAssets + '/css',
+            extensions: ['png','gif'],
             maxImageSize: 20 * 1024, // bytes
             debug: false
         }

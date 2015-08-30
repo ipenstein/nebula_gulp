@@ -112,6 +112,15 @@ pre h4,
 .files {            background: $green2 !important; border: 1px solid $white; }
 
 /*
+# Example base64
+ */
+.example-base64 {
+    width: 180px;
+    height: 180px;
+    background: url("../img/apple-touch-icon-180x180.png");
+}
+
+/*
 # Example lists
  */
 .custom-counter {

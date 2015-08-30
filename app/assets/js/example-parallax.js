@@ -10,7 +10,7 @@ $(document).ready(function() {
     });
 
     $('.hero').parallax({
-        imageSrc:       "img/uni.jpg",
+        imageSrc:       "assets/img/uni.jpg",
         position:       "top",
         bleed:          "10",
         naturalWidth:   "1680",

@@ -1,3 +1,7 @@
+/*
+Verzeichnisse
+ */
+
 var src               = 'app';
 var build             = 'build';
 var development       = 'build/development';
@@ -6,10 +10,16 @@ var srcAssets         = 'app/assets';
 var developmentAssets = 'build/development/assets';
 var productionAssets  = 'build/production/assets';
 
+/*
+Skripte, die concatiniert werden sollen
+ */
+
+// Für head.js
 var jsHead = [
     src + '/bower_components/modernizr/modernizr.js'
 ];
 
+// Für application.js
 var jsApplication = [
     // dependencies
     src + '/bower_components/jquery/dist/jquery.min.js',
@@ -160,11 +170,17 @@ module.exports = {
     },
     copyhtml: {
         development: {
-            src:    src + '/*.html',
+            src:    [
+                        src + '/**/*.{html,markdown,md,yml,json,txt,xml}',
+                        '!' + src + '/{bower_components,bower_components/**}'
+                    ],
             dest:   development
         },
         production: {
-            src:    src + '/*.html',
+            src:    [
+                        src + '/**/*.{html,markdown,md,yml,json,txt,xml}',
+                        '!' + src + '/{bower_components,bower_components/**}'
+                    ],
             dest:   production
           }
     },

@@ -8,6 +8,7 @@ gulp.task('build', function(callback) {
     runSequence('delete',
     [
         'sass',
+        'jshint',
         'scripts:head',
         'scripts:application',
         'images',

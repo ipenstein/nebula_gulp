@@ -2,7 +2,7 @@
 function openCollapse (el, duration) {
     var dur = (duration) ? duration : 400;
     $(el).addClass("collapse-open");
-    $(el).next(".collapse-content").slideDown(dur, function() {
+    $(el).next(".collapse-content").stop().slideDown(dur, function() {
         $(this).addClass("collapse-open");
     });
 }
@@ -10,7 +10,7 @@ function openCollapse (el, duration) {
 function closeCollapse (el, duration) {
     var dur = (duration) ? duration : 400;
     $(el).removeClass("collapse-open");
-    $(el).next(".collapse-content").slideUp(dur, function() {
+    $(el).next(".collapse-content").stop().slideUp(dur, function() {
         $(this).removeClass("collapse-open");
     });
 }

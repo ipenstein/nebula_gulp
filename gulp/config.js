@@ -47,10 +47,16 @@ module.exports = {
                 developmentAssets + '/img/**',
                 developmentAssets + '/fonts/*'
             ]
+        },
+        production: {
+            server: {
+                baseDir: [production]
+            },
+            port: 9998
         }
     },
     delete: {
-        src: [development]
+        src: [production]
     },
     sass: {
         src:  srcAssets + '/sass/**/*.{sass,scss}',
@@ -86,8 +92,15 @@ module.exports = {
     },
     copyfonts: {
         development: {
-            src:  srcAssets + '/fonts/*',
+            src:  [
+                srcAssets + '/fonts/*',
+                src + '/bower_components/font-awesome/fonts/*'
+            ],
             dest: developmentAssets + '/fonts'
+        },
+        production: {
+            src:  developmentAssets + '/fonts/*',
+            dest: productionAssets + '/fonts'
         }
     },
     base64: {
@@ -147,8 +160,67 @@ module.exports = {
     },
     copyhtml: {
         development: {
-            src: src + '/*.html',
-            dest: development
+            src:    src + '/*.html',
+            dest:   development
+        },
+        production: {
+            src:    src + '/*.html',
+            dest:   production
+          }
+    },
+    optimize: {
+        css: {
+            src:  developmentAssets + '/css/*.css',
+            dest: productionAssets + '/css/',
+            options: {
+                keepSpecialComments: 0
+            }
+        },
+        js: {
+            src:  developmentAssets + '/js/*.js',
+            dest: productionAssets + '/js/',
+            options: {}
+        },
+        images: {
+            src:  developmentAssets + '/img/**/*.{jpg,jpeg,png,gif}',
+            dest: productionAssets + '/img/',
+            options: {
+                optimizationLevel: 3,
+                progessive: true,
+                interlaced: true
+            }
+        },
+        html: {
+            src: production + '/**/*.html',
+            dest: production,
+            options: {
+                collapseWhitespace: true
+            }
         }
+    },
+    revision: {
+        src: {
+            assets: [
+                productionAssets + '/css/*.css',
+                productionAssets + '/js/*.js',
+                productionAssets + '/img/**/*'
+            ],
+            base: production
+        },
+        dest: {
+            assets: production,
+            manifest: {
+                name: 'manifest.json',
+                path: productionAssets
+            }
+        }
+    },
+    collect: {
+        src: [
+            productionAssets + '/manifest.json',
+            production + '/**/*.{html,xml,txt,json,css,js}',
+            '!' + production + '/feed.xml'
+        ],
+        dest: production
     }
 };

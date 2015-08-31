@@ -74,9 +74,10 @@ module.exports = {
         src:  srcAssets + '/sass/**/*.{sass,scss}',
         dest: developmentAssets + '/css',
         options: {
-            noCache: true,
-            compass: false,
-            bundleExec: true,
+            //noCache: true,
+            //compass: false,
+            //bundleExec: true,
+            style: 'compact',
             sourcemap: true,
             sourcemapPath: '../../app/assets/sass'
         }

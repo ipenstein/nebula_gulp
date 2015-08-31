@@ -17,17 +17,17 @@ gulp.task('sass', function() {
     sassConfig.onError = browsersync.notify;
 
     // Don’t write sourcemaps of sourcemaps
-    var filter = gulpFilter(['*.css', '!*.map']);
+    var filter = gulpFilter(['*.css', '!*.map'], {restore: true});
 
     browsersync.notify('Compiling Sass');
 
     return gulp.src(config.sass.src)
         .pipe(plumber())
-        .pipe(sass(sassConfig))
         .pipe(sourcemaps.init())
+        .pipe(sass(sassConfig))
         .pipe(autoprefixer(config.autoprefixer))
-        //.pipe(filter) // Don’t write sourcemaps of sourcemaps
-        .pipe(sourcemaps.write('.', { includeContent: false }))
-        //.pipe(filter.restore()) // Restore original files
+        .pipe(filter) // Don’t write sourcemaps of sourcemaps
+        .pipe(sourcemaps.write('.'))
+        .pipe(filter.restore) // Restore original files
         .pipe(gulp.dest(config.sass.dest));
 });

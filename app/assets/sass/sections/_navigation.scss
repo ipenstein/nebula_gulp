@@ -12,8 +12,9 @@
         background: none;
     }
     @include bp(big) {
-        right: 13px;
         left: auto;
+        right: 13px;
+        width: 600px;
     }
 }
 
@@ -29,22 +30,41 @@
     line-height: 20px;
     border: 1px solid;
     background-color: transparent;
-    font-family: "FontAwesome";
-
+    font-family: $font-family-2;
+    text-transform: uppercase;
     color: $blue1;
     border-color: rgba($blue1, 0.3);
+    border-radius: 5px;
+    @include font-size(24, 20);
+    transition: all 0.3s ease-out;
+
+    i {
+        font-family: "FontAwesome";
+        width: 18px;
+        text-align: center;
+    }
+
+    span {
+        display: none;
+    }
 
     &:hover {
         background-color: $blue1;
         color: $grey1;
     }
 
-    border-radius: 5px;
-    @include font-size(24, 20);
-    transition: all 0.3s ease-out;
+    @include bp(small) {
+        width: auto;
+        padding: 5px 12px;
 
-    @include bp(big) {
-        display: none !important;
+        i {
+
+        }
+
+        span {
+            display: inline;
+            @include font-size(20, 20);
+        }
     }
 }
 
@@ -58,14 +78,19 @@
     }
 }
 
-.active > .icon-open {
-    display: none;
+.icon-open {
+    display: inline-block;
+
+    .active > & {
+        display: none;
+    }
 }
 
 .icon-close {
     display: none;
+
     .active > & {
-        display: inline;
+        display: inline-block;
     }
 }
 
@@ -75,26 +100,21 @@
     display: none;
     margin-top: 50px;
     @include bp(big) {
-        margin-top: 0;
-        background-color: transparent;
-        display: block !important;
-        opacity: 1 !important;
-        @include inline-list;
+        margin-right: 7px;
     }
 }
 
 
 .main-nav a {
-    font-family: $font-family-2;
+    font-family: $font-family-1;
     color: $blue1;
-    text-transform: uppercase;
     text-decoration: none;
     float: left;
     padding: 13px 20px;
     display: block;
-    border-top: 1px solid rgba($white, 0.1);
-    background-color: rgba($black, 0.85);
+    border-bottom: 1px solid rgba($white, 0.1);
     border-right: 1px solid rgba($white, 0.1);
+    background-color: rgba($black, 0.85);
     width: 50%;
 
     &:hover {
@@ -106,36 +126,34 @@
         width: 33.333333%;
     }
 
-    @include bp(big) {
-        transition: color 0.2s ease-in;
-        border: 0;
-        width: auto;
-        margin: 0 7px;
-        padding: 10px 0;
-        background-color: transparent;
-        @include font-size(15, 20);
-        &:hover {
-            background-color: transparent;
-            color: $blue2;
-        }
+    @include bp(medium) {
+        width: 25%;
     }
 }
 
-.main-nav li:nth-child(2n) a {
-    border-right: 0;
+.main-nav li:nth-child(2n-1) a {
+    border-left: 1px solid rgba($white, 0.1);
 
     @include bp(small) {
-        border-right: 1px solid rgba($white, 0.1);
-    }
-
-    @include bp(big) {
-        border-right: 0;
+        border-left: 0;
     }
 }
 
-.main-nav li:nth-child(3n) a {
+.main-nav li:nth-child(3n-2) a {
     @include bp(small) {
-        border-right: 0;
+        border-left: 1px solid rgba($white, 0.1);
+    }
+
+    @include bp(medium) {
+        border-left: 0;
+    }
+
+}
+
+.main-nav li:nth-child(4n-3) a {
+
+    @include bp(medium) {
+        border-left: 1px solid rgba($white, 0.1);
     }
 }
 

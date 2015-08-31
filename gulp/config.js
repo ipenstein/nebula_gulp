@@ -238,5 +238,10 @@ module.exports = {
             '!' + production + '/feed.xml'
         ],
         dest: production
-    }
+    },
+    gzip: {
+        src: production + '/**/*.{html,xml,json,css,js}',
+        dest: production,
+        options: {}
+    },
 };

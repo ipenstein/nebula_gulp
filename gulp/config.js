@@ -44,6 +44,7 @@ var jsApplication = [
 ];
 
 module.exports = {
+
     browsersync: {
         development: {
             server: {
@@ -67,9 +68,16 @@ module.exports = {
             //proxy: 'nebula.loc'
         }
     },
+
     delete: {
-        src: [production]
+        development: {
+            src: [development]
+        },
+        production: {
+            src: [production]
+        }
     },
+
     sass: {
         src:  srcAssets + '/sass/**/*.{sass,scss}',
         dest: developmentAssets + '/css',
@@ -82,6 +90,7 @@ module.exports = {
             sourcemapPath: '../../app/assets/sass'
         }
     },
+
     autoprefixer: {
         browsers: [
             'last 2 versions',
@@ -94,15 +103,18 @@ module.exports = {
         ],
         cascade: true
     },
+
     scripts: {
         srcHead: jsHead,
         srcApplication: jsApplication,
         dest: developmentAssets + '/js'
     },
+
     images: {
         src:  srcAssets + '/img/**/*',
         dest: developmentAssets + '/img'
     },
+
     copyfonts: {
         development: {
             src:  [
@@ -116,6 +128,7 @@ module.exports = {
             dest: productionAssets + '/fonts'
         }
     },
+
     base64: {
         src: developmentAssets + '/css/*.css',
         dest: developmentAssets + '/css',
@@ -126,6 +139,7 @@ module.exports = {
             debug: false
         }
     },
+
     watch: {
         html:    src + '/**/*.{html,markdown,md,yml,json,txt,xml}',
         sass:    srcAssets + '/sass/**/*.{sass,scss}',
@@ -134,6 +148,7 @@ module.exports = {
         sprites: srcAssets + '/img/**/*.png',
         svg:     'vectors/*.svg'
     },
+
     scsslint: {
         src: [
             srcAssets + '/sass/**/*.{sass,scss}',
@@ -144,9 +159,11 @@ module.exports = {
             bundleExec: true
         }
     },
+
     jshint: {
         src: srcAssets + '/js/*.js'
     },
+
     sprites: {
         src: srcAssets + '/img/sprites/icon/*.png',
         dest: {
@@ -171,22 +188,24 @@ module.exports = {
             imgPath: '/assets/img/sprites/icon-sprite.png'
         }
     },
+
     copyhtml: {
         development: {
-            src:    [
-                        src + '/**/*.{html,markdown,md,yml,json,txt,xml}',
-                        '!' + src + '/{bower_components,bower_components/**}'
-                    ],
-            dest:   development
+            src: [
+                src + '/**/*.{html,markdown,md,yml,json,txt,xml}',
+                '!' + src + '/{bower_components,bower_components/**}'
+            ],
+            dest: development
         },
         production: {
-            src:    [
-                        src + '/**/*.{html,markdown,md,yml,json,txt,xml}',
-                        '!' + src + '/{bower_components,bower_components/**}'
-                    ],
-            dest:   production
+            src: [
+                src + '/**/*.{html,markdown,md,yml,json,txt,xml}',
+                '!' + src + '/{bower_components,bower_components/**}'
+            ],
+            dest: production
           }
     },
+
     optimize: {
         css: {
             src:  developmentAssets + '/css/*.css',
@@ -217,6 +236,7 @@ module.exports = {
             }
         }
     },
+
     revision: {
         src: {
             assets: [
@@ -234,6 +254,7 @@ module.exports = {
             }
         }
     },
+
     collect: {
         src: [
             productionAssets + '/manifest.json',
@@ -242,6 +263,7 @@ module.exports = {
         ],
         dest: production
     },
+
     gzip: {
         src: production + '/**/*.{html,xml,json,css,js}',
         dest: production,

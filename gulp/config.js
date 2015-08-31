@@ -46,13 +46,11 @@ var jsApplication = [
 module.exports = {
     browsersync: {
         development: {
-            /*
             server: {
                 baseDir: [development, build, src]
             },
             port: 9999,
-            */
-            proxy: 'nebula.loc',
+            //proxy: 'nebula.loc',
             files: [
                 development + '/**/*.html',
                 developmentAssets + '/css/*.css',
@@ -62,13 +60,11 @@ module.exports = {
             ]
         },
         production: {
-            /*
             server: {
                 baseDir: [production]
             },
             port: 9998
-            */
-            proxy: 'nebula.loc'
+            //proxy: 'nebula.loc'
         }
     },
     delete: {

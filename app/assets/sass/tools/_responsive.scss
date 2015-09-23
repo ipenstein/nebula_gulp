@@ -60,8 +60,18 @@ Retina breakpoint.
 @param {String} $resolution - dpi-resolution
 */
 @mixin hd($ratio: 2, $resolution: 192dpi) {
-    @media (-min-device-pixel-ratio: $ratio), (min-resolution: $resolution) {
+
+    @media
+    only screen and (-webkit-min-device-pixel-ratio: $ratio),
+    only screen and (   min--moz-device-pixel-ratio: $ratio),
+    only screen and (     -o-min-device-pixel-ratio: $ratio / 1),
+    only screen and (        min-device-pixel-ratio: $ratio),
+    only screen and (                min-resolution: $resolution),
+    only screen and (                min-resolution: 2dppx) {
+
+        /* Retina-specific stuff here */
         @content;
+
     }
 }
 
